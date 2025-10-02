@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils"
 
 type AnimateT = "left" | "right" | "top" | "bottom" | "z" | "blur" | undefined
 const SPRING_CONFIG = {
-  type: "spring",
+  type: "spring" as const,
   stiffness: 100,
   damping: 16,
   mass: 0.75,
@@ -83,14 +83,14 @@ function useContainerScrollContext() {
   }
   return context
 }
-interface ContainerScrollProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ContainerScrollProps extends React.HTMLAttributes<HTMLElement> {}
 
 const ContainerScroll = ({
   children,
   className,
   ...props
 }: ContainerScrollProps) => {
-  const scrollRef = React.useRef<HTMLDivElement>(null)
+  const scrollRef = React.useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: scrollRef,
   })
@@ -101,11 +101,10 @@ const ContainerScroll = ({
     <ContainerScrollContext.Provider value={{ scrollYProgress }}>
       <motion.section
         className={cn(
-          "relative min-h-[150vh] w-full pb-[20%] pt-8",
+          "relative min-h-[130vh] w-full pb-[20%] pt-8",
           className
         )}
         style={{ zIndex }}
-        {...props}
         ref={scrollRef}
       >
         {children}

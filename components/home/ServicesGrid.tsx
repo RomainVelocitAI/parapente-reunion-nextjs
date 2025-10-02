@@ -71,10 +71,10 @@ export default function ServicesGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#021157] mb-4">
-            Nos Services
+            Vols Parapente à La Réunion
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Choisissez l'expérience qui vous correspond
+            Vol tandem, baptême de l'air et formation parapente à Saint-Leu
           </p>
         </div>
 
