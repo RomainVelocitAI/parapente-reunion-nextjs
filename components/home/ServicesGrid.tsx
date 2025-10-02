@@ -20,7 +20,7 @@ const servicesData = [
   },
   {
     id: 2,
-    video: 'https://cdn.shopify.com/videos/c/o/v/f2b6ac3856934cd3921cb4606fef3514.mp4',
+    video: 'https://res.cloudinary.com/daa8ghynu/video/upload/v1759401454/videosunset_tgbmox.mp4',
     title: 'Vol Sunset',
     description: 'Admirez le coucher de soleil sur l\'océan Indien depuis le ciel',
     price: '100€',
@@ -35,7 +35,7 @@ const servicesData = [
   },
   {
     id: 3,
-    video: 'https://cdn.shopify.com/videos/c/o/v/f2b6ac3856934cd3921cb4606fef3514.mp4',
+    video: 'https://res.cloudinary.com/daa8ghynu/video/upload/v1759401452/videomarmaille_bpdpvg.mp4',
     title: 'Vol Marmaille',
     description: 'Une expérience adaptée aux enfants dès 5 ans',
     price: '80€',
@@ -50,7 +50,7 @@ const servicesData = [
   },
   {
     id: 4,
-    video: 'https://cdn.shopify.com/videos/c/o/v/f2b6ac3856934cd3921cb4606fef3514.mp4',
+    video: 'https://res.cloudinary.com/daa8ghynu/video/upload/v1759401487/videoformation_bjfwem.mp4',
     title: 'Formation Parapente',
     description: 'Apprenez à voler en autonomie à La Réunion avec nos moniteurs diplômés',
     price: 'Sur devis',

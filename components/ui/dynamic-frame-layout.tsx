@@ -9,6 +9,7 @@ interface Frame {
   title?: string
   description?: string
   price?: string
+  href?: string
   defaultPos: { x: number; y: number; w: number; h: number }
   corner: string
   edgeHorizontal: string

@@ -95,18 +95,21 @@ const ContainerScroll = ({
     target: scrollRef,
   })
 
+  const zIndex = useTransform(scrollYProgress, [0, 0.3, 1], [1, 60, 60])
+
   return (
     <ContainerScrollContext.Provider value={{ scrollYProgress }}>
-      <section
+      <motion.section
         className={cn(
           "relative min-h-[150vh] w-full pb-[20%] pt-8",
           className
         )}
+        style={{ zIndex }}
         {...props}
         ref={scrollRef}
       >
         {children}
-      </section>
+      </motion.section>
     </ContainerScrollContext.Provider>
   )
 }
