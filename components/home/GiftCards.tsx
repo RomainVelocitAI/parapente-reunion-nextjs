@@ -1,27 +1,27 @@
 'use client'
 
-import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
+import { HomeGiftCard } from '@/components/home-gift-card'
 
 const giftCards = [
   {
     title: 'Carte Cadeau Vol Découverte\n15 minutes',
     description: 'Offrez un baptême de l\'air en parapente biplace au-dessus de Saint-Leu. Le cadeau parfait pour découvrir les sensations du vol libre à La Réunion.',
     price: '90€',
-    imageUrl: '/images/produits/carte.png',
+    imageUrl: '/images/galerie/boitenobg.png',
     id: 'vol-decouverte-15',
   },
   {
     title: 'Carte Cadeau Vol Sunset',
     description: 'Un vol inoubliable au coucher du soleil sur l\'océan Indien. Admirez les couleurs magnifiques du ciel réunionnais depuis les airs.',
     price: '100€',
-    imageUrl: '/images/produits/carte.png',
+    imageUrl: '/images/galerie/boitenobg.png',
     id: 'vol-sunset',
   },
   {
     title: 'Carte Cadeau Vol Marmaille',
     description: 'Une expérience adaptée aux enfants dès 5 ans. Un vol sécurisé et ludique pour découvrir le parapente en famille.',
     price: '80€',
-    imageUrl: '/images/produits/carte.png',
+    imageUrl: '/images/galerie/boitenobg.png',
     id: 'vol-marmaille',
   },
 ]
@@ -41,7 +41,7 @@ export default function GiftCards() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 justify-items-center">
           {giftCards.map((card) => (
-            <ShirtParallaxCard
+            <HomeGiftCard
               key={card.id}
               title={card.title}
               description={card.description}
