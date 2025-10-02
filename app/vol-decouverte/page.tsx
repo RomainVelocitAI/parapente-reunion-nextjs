@@ -1,17 +1,19 @@
 'use client'
 
-import { Phone } from 'lucide-react'
+import { Phone, Wind, Mountain, Camera, Clock } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
 import { VolDecouverteHero } from '@/components/heroes/VolDecouverteHero'
 import { VolDecouverteGallery } from '@/components/galleries/VolDecouverteGallery'
+import { ImageAutoSlider } from '@/components/image-auto-slider'
+import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 
 export default function VolDecouvertePage() {
-  const tarifs = [
-    { duree: '15-20 minutes', prix: '90€', description: 'Premier contact avec le parapente, sensations garanties' },
-    { duree: '20-30 minutes', prix: '100€', description: 'Découvrez les plaisirs du vol en parapente' },
-    { duree: '30-40 minutes', prix: '120€', description: 'Plus de temps pour profiter de la vue imprenable' },
-    { duree: '40-50 minutes', prix: '140€', description: 'Vol confort pour admirer La Réunion depuis les airs' },
-    { duree: '50-60 minutes', prix: '160€', description: 'Vol longue durée pour une expérience complète' },
+  const durations = [
+    { value: 0, label: '15-20min', price: 90, description: 'Premier contact avec le parapente, sensations garanties' },
+    { value: 1, label: '20-30min', price: 100, description: 'Découvrez les plaisirs du vol en parapente' },
+    { value: 2, label: '30-40min', price: 120, description: 'Plus de temps pour profiter de la vue imprenable' },
+    { value: 3, label: '40-50min', price: 140, description: 'Vol confort pour admirer La Réunion depuis les airs' },
+    { value: 4, label: '50-60min', price: 160, description: 'Vol longue durée pour une expérience complète' },
   ]
 
   return (
@@ -22,45 +24,131 @@ export default function VolDecouvertePage() {
       {/* Gallery Hover Carousel */}
       <VolDecouverteGallery />
 
-      {/* Tarifs Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-12">
+      {/* Tarif Section avec Slider Interactif */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-16">
             Tarifs Vol Découverte
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {tarifs.map((tarif, index) => (
-              <div
-                key={index}
-                className="bg-white border-2 border-blue-200 rounded-2xl p-6 hover:border-[#021157] hover:shadow-xl transition-all"
-              >
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-[#021157] mb-2">{tarif.prix}</div>
-                  <div className="text-xl font-semibold text-gray-800 mb-3">{tarif.duree}</div>
-                  <p className="text-gray-600">{tarif.description}</p>
+          {/* Carte Tarif Interactive */}
+          <div className="flex justify-center mb-16">
+            <ShirtParallaxCard
+              title="Vol Découverte"
+              description="Choisissez la durée de votre vol"
+              price="120€"
+              imageUrl="/images/paraglider-pixar.png"
+              buttonText="Réserver"
+              buttonHref={`tel:${CONTACT.phone1}`}
+              className="w-full max-w-md md:max-w-3xl"
+              interactive={true}
+              durations={durations}
+            />
+          </div>
+
+          {/* Image Auto Slider */}
+          <div className="mb-16">
+            <ImageAutoSlider
+              images={[
+                '/images/gallery/vol-decouverte-1.jpg',
+                '/images/gallery/vol-decouverte-2.jpg',
+                '/images/gallery/vol-decouverte-3.jpg',
+                '/images/gallery/vol-decouverte-4.jpg'
+              ]}
+              interval={25}
+              className="bg-white rounded-2xl"
+            />
+          </div>
+
+          {/* Infos Vol Découverte - Premium Card */}
+          <div className="relative mb-12 max-w-4xl mx-auto">
+            <div className="bg-[#021157] border border-[#021157] rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 group">
+              {/* Header */}
+              <div className="p-8 text-center">
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  L'expérience parapente à La Réunion
+                </h3>
+                <p className="text-white/90 text-sm">
+                  Tout ce qu'il faut savoir avant de décoller
+                </p>
+              </div>
+
+              {/* Content avec grille */}
+              <div className="p-8 md:p-12 bg-white">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Card 1 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Wind className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700">
+                      <h4 className="font-bold text-[#021157] mb-1">Vol en thermique</h4>
+                      <p className="text-sm text-gray-700">
+                        Profitez des courants ascendants pour voler plus longtemps et plus haut
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Mountain className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-150">
+                      <h4 className="font-bold text-[#021157] mb-1">Vue panoramique</h4>
+                      <p className="text-sm text-gray-700">
+                        Admirez le lagon, les montagnes et toute la côte ouest de La Réunion
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Camera className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700 delay-300">
+                      <h4 className="font-bold text-[#021157] mb-1">Photos et vidéos</h4>
+                      <p className="text-sm text-gray-700">
+                        Immortalisez votre vol avec des photos et vidéos de qualité professionnelle
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 4 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Clock className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-450">
+                      <h4 className="font-bold text-[#021157] mb-1">Durée flexible</h4>
+                      <p className="text-sm text-gray-700">
+                        Choisissez la durée de votre vol selon vos envies, de 15 à 60 minutes
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
 
           {/* CTA Réservation */}
-          <div className="bg-gradient-to-r from-[#021157] to-blue-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Prêt à décoller ?
+          <div className="bg-white border-2 border-[#021157] rounded-2xl p-8 md:p-12 text-center shadow-xl hover:shadow-2xl transition-all duration-300">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#021157] mb-4">
+              Prêt pour l'aventure ?
             </h3>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-[#021157]/80 mb-8">
               Réservez votre vol découverte par téléphone
             </p>
             <a
               href={`tel:${CONTACT.phone1}`}
-              className="inline-flex items-center gap-3 bg-white text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-3 bg-[#FFD700] text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-[#FFC700] transition-all hover:scale-105 shadow-lg"
             >
               <Phone className="w-6 h-6" />
               Réserver maintenant
             </a>
-            <p className="text-white/80 mt-6 text-sm">
-              Disponibilité en temps réel • Conseils personnalisés • Paiement sécurisé
+            <p className="text-[#021157]/70 mt-6 text-sm">
+              Disponibilité en temps réel • Conseils personnalisés • Paiement sur place
             </p>
           </div>
         </div>

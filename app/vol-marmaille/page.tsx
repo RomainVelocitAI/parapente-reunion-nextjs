@@ -1,9 +1,11 @@
 'use client'
 
-import { Phone } from 'lucide-react'
+import { Phone, Shield, Heart, Camera, Users } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
 import { VolMarmailleHero } from '@/components/heroes/VolMarmailleHero'
 import { VolMarmailleGallery } from '@/components/galleries/VolMarmailleGallery'
+import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
+import { ImageAutoSlider } from '@/components/image-auto-slider'
 
 export default function VolMarmaillePage() {
   return (
@@ -14,67 +16,128 @@ export default function VolMarmaillePage() {
       {/* Gallery Hover Carousel */}
       <VolMarmailleGallery />
 
-
-      {/* Tarif Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-12">
+      {/* Tarif Section - Style Cartes Cadeaux */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-16">
             Tarif Vol Marmaille
           </h2>
 
-          <div className="max-w-md mx-auto mb-12">
-            <div className="bg-white border-2 border-green-200 rounded-2xl p-8 hover:border-[#021157] hover:shadow-xl transition-all">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-[#021157] mb-4">80€</div>
-                <div className="text-xl font-semibold text-gray-800 mb-4">par enfant</div>
-                <p className="text-gray-600 mb-2">Vol adapté pour les moins de 12 ans</p>
-                <p className="text-sm text-green-600 font-semibold">Encadrement spécialisé enfants</p>
+          <div className="flex justify-center mb-16">
+            <ShirtParallaxCard
+              title="Vol Marmaille"
+              description="Vol adapté pour les enfants dès 4 ans. Encadrement spécialisé avec moniteurs diplômés habitués aux plus jeunes."
+              price="80€"
+              imageUrl="/images/paraglider-pixar-chinois.png"
+              buttonText="Réserver"
+              buttonHref={`tel:${CONTACT.phone1}`}
+              className="w-full max-w-md md:max-w-3xl"
+            />
+          </div>
+
+          {/* Image Auto Slider */}
+          <div className="mb-16">
+            <ImageAutoSlider
+              images={[
+                '/images/gallery/vol-marmaille-1.jpg',
+                '/images/gallery/vol-marmaille-2.jpg',
+                '/images/gallery/vol-marmaille-3.jpg',
+                '/images/gallery/vol-marmaille-4.jpg'
+              ]}
+              interval={25}
+              className="bg-white rounded-2xl"
+            />
+          </div>
+
+          {/* Infos parents - Premium Card */}
+          <div className="relative mb-12 max-w-4xl mx-auto">
+            <div className="bg-[#021157] border border-[#021157] rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 group">
+              {/* Header */}
+              <div className="p-8 text-center">
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Informations pour les parents
+                </h3>
+                <p className="text-white/90 text-sm">
+                  Votre enfant entre de bonnes mains
+                </p>
+              </div>
+
+              {/* Content avec grille */}
+              <div className="p-8 md:p-12 bg-white">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Card 1 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Users className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700">
+                      <h4 className="font-bold text-[#021157] mb-1">Présence parentale</h4>
+                      <p className="text-sm text-gray-700">
+                        Un parent doit être présent lors du décollage et de l'atterrissage
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Shield className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-150">
+                      <h4 className="font-bold text-[#021157] mb-1">Autorisation requise</h4>
+                      <p className="text-sm text-gray-700">
+                        Autorisation parentale écrite obligatoire pour le vol
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Heart className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700 delay-300">
+                      <h4 className="font-bold text-[#021157] mb-1">Vol adapté</h4>
+                      <p className="text-sm text-gray-700">
+                        Durée et intensité ajustées selon l'âge et le confort de l'enfant
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 4 */}
+                  <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
+                      <Camera className="w-6 h-6 text-[#021157]" />
+                    </div>
+                    <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-450">
+                      <h4 className="font-bold text-[#021157] mb-1">Souvenirs immortalisés</h4>
+                      <p className="text-sm text-gray-700">
+                        Photos et vidéos disponibles pour garder ce moment unique
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Infos parents */}
-          <div className="bg-green-50 rounded-2xl p-8 mb-12 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-[#021157] mb-4 text-center">
-              👨‍👩‍👧‍👦 Informations pour les parents
-            </h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
-                <span>Présence d un parent obligatoire lors du décollage et de l atterrissage</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
-                <span>Autorisation parentale requise pour le vol</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
-                <span>Vol adapté en durée et intensité selon l âge et le confort de l enfant</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
-                <span>Photos et vidéos possibles pour immortaliser ce moment unique</span>
-              </li>
-            </ul>
-          </div>
-
           {/* CTA Réservation */}
-          <div className="bg-gradient-to-r from-[#021157] to-green-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="bg-white border-2 border-[#021157] rounded-2xl p-8 md:p-12 text-center shadow-xl hover:shadow-2xl transition-all duration-300">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#021157] mb-4">
               Offrez une aventure à votre enfant
             </h3>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-[#021157]/80 mb-8">
               Réservez le vol marmaille par téléphone
             </p>
             <a
               href={`tel:${CONTACT.phone1}`}
-              className="inline-flex items-center gap-3 bg-white text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-3 bg-[#FFD700] text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-[#FFC700] transition-all hover:scale-105 shadow-lg"
             >
               <Phone className="w-6 h-6" />
               Appelez pour réserver
             </a>
-            <p className="text-white/80 mt-6 text-sm">
-              Autorisation parentale requise • Moins de 12 ans • Encadrement spécialisé
+            <p className="text-[#021157]/70 mt-6 text-sm">
+              Autorisation parentale requise • À partir de 4 ans • Encadrement spécialisé
             </p>
           </div>
         </div>

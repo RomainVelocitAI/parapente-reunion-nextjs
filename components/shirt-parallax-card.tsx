@@ -17,6 +17,13 @@ const bounceStyle = `
 }
 `;
 
+interface FlightDuration {
+  value: number;
+  label: string;
+  price: number;
+  description: string;
+}
+
 interface ShirtParallaxCardProps {
   title: string;
   description: string;
@@ -25,6 +32,11 @@ interface ShirtParallaxCardProps {
   className?: string;
   buttonText?: string;
   buttonHref?: string;
+  backgroundImage?: string;
+  // Props pour le slider interactif
+  interactive?: boolean;
+  durations?: FlightDuration[];
+  onDurationChange?: (index: number) => void;
 }
 
 export function ShirtParallaxCard({
@@ -35,7 +47,13 @@ export function ShirtParallaxCard({
   className,
   buttonText = "Buy Now",
   buttonHref = "#",
+  backgroundImage,
+  interactive = false,
+  durations = [],
+  onDurationChange,
 }: ShirtParallaxCardProps) {
+  const [selectedDuration, setSelectedDuration] = React.useState(2);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -44,6 +62,13 @@ export function ShirtParallaxCard({
 
   const rotateX = useTransform(ySpring, [-0.5, 0.5], ["6deg", "-6deg"]);
   const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
+
+  const handleSliderChange = (index: number) => {
+    setSelectedDuration(index);
+    onDurationChange?.(index);
+  };
+
+  const currentDuration = interactive && durations.length > 0 ? durations[selectedDuration] : null;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -72,13 +97,62 @@ export function ShirtParallaxCard({
         className={cn("relative w-96 cursor-pointer rounded-2xl", className)}
       >
         {/* Card */}
-        <Card className="relative z-10 rounded-2xl border bg-card p-4 min-h-[320px] flex flex-col">
-          <CardHeader className="p-0 mb-4 h-[60px]">
-            <CardTitle className="text-xl font-bold text-[#FFD700] whitespace-pre-line">{title}</CardTitle>
+        <Card
+          className="relative z-10 rounded-2xl border bg-card p-4 min-h-[320px] flex flex-col overflow-hidden"
+          style={backgroundImage ? {
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          } : {}}
+        >
+          <CardHeader className="p-0 mb-4 relative z-10">
+            <span className="inline-block bg-[#021157] px-4 py-2 rounded-full text-xl font-bold text-[#FFD700] whitespace-nowrap min-w-[200px] max-w-[280px] text-center">
+              {title}
+            </span>
           </CardHeader>
-          <CardContent className="p-0 max-w-[280px] flex-1 flex flex-col">
-            <p className="text-sm text-[#021157] flex-1">{description}</p>
-            <p className="mt-3 text-lg font-semibold text-[#021157]">{price}</p>
+          <CardContent className="p-0 max-w-[280px] flex-1 flex flex-col relative z-10">
+            {interactive && currentDuration ? (
+              <>
+                {/* Prix dynamique */}
+                <div className="mb-4">
+                  <p className="text-3xl font-bold text-[#021157]">{currentDuration.price}€</p>
+                  <p className="text-sm text-[#021157]/70">Durée : {currentDuration.label}</p>
+                </div>
+
+                {/* Slider */}
+                <div className="mb-4">
+                  <label className="block text-xs font-medium text-[#021157] mb-2">
+                    Choisissez la durée
+                  </label>
+                  <input
+                    type="range"
+                    min="0"
+                    max={durations.length - 1}
+                    value={selectedDuration}
+                    onChange={(e) => handleSliderChange(Number(e.target.value))}
+                    className="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer slider-thumb"
+                    style={{
+                      background: `linear-gradient(to right, #021157 0%, #021157 ${(selectedDuration / (durations.length - 1)) * 100}%, #e5e7eb ${(selectedDuration / (durations.length - 1)) * 100}%, #e5e7eb 100%)`
+                    }}
+                  />
+                  <div className="flex justify-between mt-1 text-[10px] text-gray-600">
+                    <span>15min</span>
+                    <span>30min</span>
+                    <span>45min</span>
+                    <span>60min</span>
+                  </div>
+                </div>
+
+                {/* Description dynamique */}
+                <p className="text-xs text-[#021157] flex-1 mb-3">{currentDuration.description}</p>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-[#021157] flex-1">{description}</p>
+                <p className="mt-3 text-lg font-semibold text-[#021157]">{price}</p>
+              </>
+            )}
+
             <a
               href={buttonHref}
               className="mt-4 w-full inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium bg-[#021157] hover:bg-[#021157]/90 text-white transition-colors shadow-sm"
