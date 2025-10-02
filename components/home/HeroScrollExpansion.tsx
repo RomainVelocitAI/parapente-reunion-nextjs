@@ -2,7 +2,7 @@
 
 import ScrollExpandMedia from '@/components/scroll-expansion-hero'
 import { Button } from '@/components/ui/button'
-import { Phone, Calendar } from 'lucide-react'
+import { Calendar, Phone } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
 import Image from 'next/image'
 

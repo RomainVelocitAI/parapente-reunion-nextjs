@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Facebook, Instagram, Calendar } from 'lucide-react'
+import { Mail, MapPin, Facebook, Instagram, Calendar, Phone } from 'lucide-react'
 import { CONTACT, HOURS, SOCIAL } from '@/lib/constants'
 
 const footerLinks = {
@@ -42,6 +42,7 @@ export default function Footer() {
                   src="/images/logo.png"
                   alt="Parapente Réunion"
                   fill
+                  sizes="48px"
                   className="object-contain"
                 />
               </div>

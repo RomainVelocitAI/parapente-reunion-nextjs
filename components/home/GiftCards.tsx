@@ -4,7 +4,7 @@ import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 
 const giftCards = [
   {
-    title: 'Carte Cadeau Vol Découverte 15min',
+    title: 'Carte Cadeau Vol Découverte\n15 minutes',
     description: 'Offrez un baptême de l\'air en parapente biplace au-dessus de Saint-Leu. Le cadeau parfait pour découvrir les sensations du vol libre à La Réunion.',
     price: '90€',
     imageUrl: '/images/produits/carte.png',
@@ -56,7 +56,7 @@ export default function GiftCards() {
         <div className="text-center mt-12">
           <a
             href="/cartes-cadeaux"
-            className="inline-block text-[#021157] hover:text-blue-700 font-semibold text-lg hover:underline"
+            className="inline-block text-[#021157] hover:text-[#021157]/70 font-semibold text-lg hover:underline"
           >
             Voir toutes nos cartes cadeaux →
           </a>

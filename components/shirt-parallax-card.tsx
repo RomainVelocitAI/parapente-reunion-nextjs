@@ -72,16 +72,19 @@ export function ShirtParallaxCard({
         className={cn("relative w-96 cursor-pointer rounded-2xl", className)}
       >
         {/* Card */}
-        <Card className="relative z-10 rounded-2xl border bg-card p-4 min-h-[280px] flex flex-col">
-          <CardHeader className="p-0">
-            <CardTitle className="text-xl font-bold">{title}</CardTitle>
+        <Card className="relative z-10 rounded-2xl border bg-card p-4 min-h-[320px] flex flex-col">
+          <CardHeader className="p-0 mb-4 h-[60px]">
+            <CardTitle className="text-xl font-bold text-[#FFD700] whitespace-pre-line">{title}</CardTitle>
           </CardHeader>
           <CardContent className="p-0 max-w-[280px] flex-1 flex flex-col">
-            <p className="text-sm text-muted-foreground flex-1">{description}</p>
-            <p className="mt-3 text-lg font-semibold text-primary">{price}</p>
-            <Button className="mt-4 w-full" asChild>
-              <a href={buttonHref}>{buttonText}</a>
-            </Button>
+            <p className="text-sm text-[#021157] flex-1">{description}</p>
+            <p className="mt-3 text-lg font-semibold text-[#021157]">{price}</p>
+            <a
+              href={buttonHref}
+              className="mt-4 w-full inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium bg-[#021157] hover:bg-[#021157]/90 text-white transition-colors shadow-sm"
+            >
+              {buttonText}
+            </a>
           </CardContent>
         </Card>
 

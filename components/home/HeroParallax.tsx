@@ -87,10 +87,12 @@ export default function HeroParallax() {
                 size="lg"
                 variant="outline"
                 className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#021157] text-lg px-8 py-6 rounded-full shadow-xl transition-all duration-300"
-                onClick={() => window.location.href = `tel:${CONTACT.phone1}`}
+                asChild
               >
-                <Phone className="mr-2 h-5 w-5" />
-                Appeler maintenant
+                <a href={`tel:${CONTACT.phone1}`}>
+                  <Phone className="mr-2 h-5 w-5" />
+                  Appeler maintenant
+                </a>
               </Button>
             </motion.div>
 

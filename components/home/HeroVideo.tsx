@@ -2,7 +2,7 @@
 
 import { ContainerScroll, ContainerInset, ContainerStagger, ContainerAnimated } from '@/components/hero-video'
 import { Button } from '@/components/ui/button'
-import { Phone, Calendar } from 'lucide-react'
+import { Calendar, Phone } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
 import FloatingParagliders from './FloatingParagliders'
 import Image from 'next/image'

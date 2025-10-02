@@ -1,6 +1,9 @@
 'use client'
 
+import { Phone } from 'lucide-react'
+import { CONTACT } from '@/lib/constants'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
+import { CartesGiftHero } from '@/components/heroes/CartesGiftHero'
 
 const giftCardsData = [
   {
@@ -57,31 +60,8 @@ const giftCardsData = [
 export default function CartesPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#021157] mb-6">
-            Cartes Cadeaux Parapente Réunion
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Offrez une expérience inoubliable dans le ciel réunionnais. Baptême de l'air, vol sunset ou vol marmaille - Le cadeau parfait pour tous les âges.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-            <span className="flex items-center gap-2">
-              ✓ Validité 1 an
-            </span>
-            <span className="flex items-center gap-2">
-              ✓ Envoi immédiat par email
-            </span>
-            <span className="flex items-center gap-2">
-              ✓ Code unique personnalisé
-            </span>
-            <span className="flex items-center gap-2">
-              ✓ Paiement sécurisé
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section avec Zoom Parallax */}
+      <CartesGiftHero />
 
       {/* Gift Cards Grid - Asymmetric Layout */}
       <section className="py-20 px-4">
@@ -118,24 +98,25 @@ export default function CartesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16 px-4">
+      <section className="bg-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#021157]">
             Une question sur nos cartes cadeaux ?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8 text-[#021157]">
             Notre équipe est à votre disposition pour vous conseiller
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+262692829292"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 hover:bg-blue-50 rounded-lg font-semibold transition-colors"
+              href={`tel:${CONTACT.phone1}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#021157] text-white hover:bg-[#021157]/90 rounded-lg font-semibold transition-colors"
             >
-              📞 +262 692 82 92 92
+              <Phone className="w-5 h-5" />
+              Appelez-nous
             </a>
             <a
               href="mailto:info@parapente-reunion.fr"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 hover:bg-blue-50 rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 bg-[#FFD700] text-[#021157] hover:bg-[#FFC700] rounded-lg font-semibold transition-colors"
             >
               ✉️ Nous contacter
             </a>

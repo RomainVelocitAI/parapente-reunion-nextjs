@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import { Phone } from "lucide-react"
+import Image from "next/image"
+import { CONTACT } from "@/lib/constants"
 
 interface Frame {
   id: number
@@ -10,6 +13,7 @@ interface Frame {
   description?: string
   price?: string
   href?: string
+  detailsHref?: string
   defaultPos: { x: number; y: number; w: number; h: number }
   corner: string
   edgeHorizontal: string
@@ -25,6 +29,7 @@ interface FrameComponentProps {
   title?: string
   description?: string
   price?: string
+  detailsHref?: string
   width: number | string
   height: number | string
   className?: string
@@ -43,6 +48,7 @@ function FrameComponent({
   title,
   description,
   price,
+  detailsHref,
   width,
   height,
   className = "",
@@ -107,17 +113,51 @@ function FrameComponent({
         </div>
 
         {/* Texte toujours visible pour SEO */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6 md:p-8" style={{ zIndex: 3 }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 md:p-8" style={{ zIndex: 3 }}>
           <div className="text-white w-full">
             {title && (
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">{title}</h3>
             )}
             {description && (
-              <p className="text-sm md:text-base lg:text-lg mb-2 opacity-90 line-clamp-2">{description}</p>
+              <p className="text-sm md:text-base lg:text-lg mb-3 opacity-90 line-clamp-2">{description}</p>
             )}
-            {price && (
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-[#00d4ff]">{price}</p>
-            )}
+            <div className="flex flex-col gap-3">
+              {price && (
+                <p className="text-lg md:text-xl lg:text-2xl font-semibold text-[#FFD700]">{price}</p>
+              )}
+              <div className="flex gap-2">
+                {detailsHref && (
+                  <a
+                    href={detailsHref}
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#FFD700]/20 backdrop-blur-sm text-white border-2 border-[#FFD700] px-3 py-2 md:px-4 md:py-2.5 rounded-full font-bold text-sm md:text-base hover:bg-[#FFD700] hover:text-[#021157] transition-all hover:scale-105"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <svg
+                      className="w-4 h-4 md:w-5 md:h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    En savoir plus
+                  </a>
+                )}
+                <a
+                  href={`tel:${CONTACT.phone1}`}
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-[#FFD700] text-[#021157] px-3 py-2 md:px-4 md:py-2.5 rounded-full font-bold text-sm md:text-base hover:bg-[#FFC700] transition-all hover:scale-105 shadow-lg"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Réserver
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -251,6 +291,7 @@ export function DynamicFrameLayout({
               title={frame.title}
               description={frame.description}
               price={frame.price}
+              detailsHref={frame.detailsHref}
               width="100%"
               height="100%"
               className="absolute inset-0"
