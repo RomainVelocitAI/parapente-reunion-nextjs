@@ -14,13 +14,13 @@ export function FormationParapenteHero({
   customImages,
 }: FormationParapenteHeroProps) {
   const defaultImages = [
-    { src: '/images/galerie/formation1.jpg', alt: 'Formation parapente La Réunion' },
-    { src: '/images/galerie/G0015444.webp', alt: 'Stage pilotage parapente' },
-    { src: '/images/galerie/G0018702.webp', alt: 'Apprentissage vol libre' },
-    { src: '/images/galerie/G0019469.webp', alt: 'Formation moniteur diplômé' },
-    { src: '/images/galerie/G0029937.webp', alt: 'Brevet pilote parapente' },
-    { src: '/images/galerie/G0033325.webp', alt: 'École de parapente Saint-Leu' },
-    { src: '/images/hero/saint-leu-la-reunion.webp', alt: 'Formation vol autonome' },
+    { src: '/images/galerie/formation-hero-1.jpg', alt: 'Formation parapente La Réunion' },
+    { src: '/images/galerie/formation-hero-2.jpg', alt: 'Stage pilotage parapente' },
+    { src: '/images/galerie/formation-hero-3.jpg', alt: 'Apprentissage vol libre' },
+    { src: '/images/galerie/formation-hero-4.jpg', alt: 'Formation moniteur diplômé' },
+    { src: '/images/galerie/formation-hero-5.jpg', alt: 'Brevet pilote parapente' },
+    { src: '/images/galerie/formation-hero-6.jpg', alt: 'École de parapente Saint-Leu' },
+    { src: '/images/galerie/formation-hero-7.jpg', alt: 'Formation vol autonome' },
   ];
 
   const images = customImages || defaultImages;

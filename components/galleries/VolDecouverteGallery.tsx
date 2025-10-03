@@ -9,28 +9,28 @@ export function VolDecouverteGallery() {
       title: "Découvrez les sensations du parapente",
       summary: "Le vol découverte est le baptême de l'air idéal pour découvrir les sensations du vol libre en parapente biplace. Accompagné d'un moniteur diplômé d'État, vous décollerez depuis Saint-Leu à 800m d'altitude sur un site aménagé avec une pente douce et facile d'accès.",
       url: "#",
-      image: "/images/galerie/G0015444.webp",
+      image: "/images/galerie/vol-decouverte-carousel-1.jpg",
     },
     {
       id: "decouverte-2",
       title: "Vue panoramique exceptionnelle",
       summary: "Profitez d'une vue panoramique exceptionnelle sur l'océan Indien, les lagons turquoise et les paysages volcaniques de La Réunion. Une expérience inoubliable accessible à tous, sans condition physique particulière.",
       url: "#",
-      image: "/images/galerie/G0018702.webp",
+      image: "/images/galerie/vol-decouverte-carousel-2.jpg",
     },
     {
       id: "decouverte-3",
       title: "Accessible à tous",
       summary: "Dès 5 ans, aucune condition physique particulière requise. Une expérience adaptée à toute la famille pour découvrir le vol libre en toute sécurité.",
       url: "#",
-      image: "/images/galerie/G0019469.webp",
+      image: "/images/galerie/vol-decouverte-carousel-3.jpg",
     },
     {
       id: "decouverte-4",
       title: "Sécurité maximale",
       summary: "Moniteurs diplômés d'État et équipement professionnel. Photos incluses pour immortaliser votre première expérience de vol en parapente.",
       url: "#",
-      image: "/images/galerie/G0029937.webp",
+      image: "/images/galerie/vol-decouverte-carousel-4.jpg",
     },
   ];
 

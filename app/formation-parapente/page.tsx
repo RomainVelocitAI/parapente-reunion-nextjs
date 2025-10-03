@@ -57,10 +57,10 @@ export default function FormationParapentePage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/gallery/formation-1.jpg',
-                '/images/gallery/formation-2.jpg',
-                '/images/gallery/formation-3.jpg',
-                '/images/gallery/formation-4.jpg'
+                '/images/galerie/formation-slider-1.jpg',
+                '/images/galerie/formation-slider-2.jpg',
+                '/images/galerie/formation-slider-3.jpg',
+                '/images/galerie/formation-slider-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"

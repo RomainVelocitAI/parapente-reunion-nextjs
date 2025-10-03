@@ -9,28 +9,28 @@ export function FormationGallery() {
       title: "Devenez pilote de parapente autonome",
       summary: "Nos formations parapente sont encadrées par des moniteurs diplômés d'État expérimentés. Nous proposons des stages adaptés à tous les niveaux, du débutant complet jusqu'au perfectionnement avancé.",
       url: "#",
-      image: "/images/galerie/formation1.jpg",
+      image: "/images/galerie/formation-carousel-1.jpg",
     },
     {
       id: "formation-2",
       title: "Site exceptionnel de Saint-Leu",
       summary: "La formation se déroule sur le site de Saint-Leu, reconnu internationalement pour ses conditions aérologiques exceptionnelles. Vous apprendrez les techniques de pilotage, la météorologie, l'aérologie et la sécurité en vol.",
       url: "#",
-      image: "/images/galerie/G0015444.webp",
+      image: "/images/galerie/formation-carousel-2.jpg",
     },
     {
       id: "formation-3",
       title: "Formation personnalisée",
       summary: "Notre objectif : vous rendre autonome et capable de voler en toute sécurité. Les stages peuvent être adaptés à votre rythme et vos objectifs personnels.",
       url: "#",
-      image: "/images/galerie/G0018702.webp",
+      image: "/images/galerie/formation-carousel-3.jpg",
     },
     {
       id: "formation-4",
       title: "Progression structurée",
       summary: "Initiation, progression, perfectionnement et préparation au brevet. Programme complet du premier vol jusqu'à l'autonomie totale avec cours théoriques et pratiques.",
       url: "#",
-      image: "/images/galerie/G0019469.webp",
+      image: "/images/galerie/formation-carousel-4.jpg",
     },
   ];
 

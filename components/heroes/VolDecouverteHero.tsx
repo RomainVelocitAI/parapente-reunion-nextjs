@@ -14,13 +14,13 @@ export function VolDecouverteHero({
   customImages,
 }: VolDecouverteHeroProps) {
   const defaultImages = [
-    { src: '/images/galerie/G0015444.webp', alt: 'Parapente vol découverte à La Réunion' },
-    { src: '/images/galerie/G0018702.webp', alt: 'Vol biplace au-dessus du lagon' },
-    { src: '/images/galerie/G0019469.webp', alt: 'Vue aérienne de Saint-Leu' },
-    { src: '/images/galerie/G0029937.webp', alt: 'Baptême de l\'air en parapente' },
-    { src: '/images/galerie/G0033325.webp', alt: 'Parapente biplace océan Indien' },
-    { src: '/images/hero/saint-leu-la-reunion.webp', alt: 'Saint-Leu depuis les airs' },
-    { src: '/images/galerie/G0015444.webp', alt: 'Découverte du parapente' },
+    { src: '/images/galerie/vol-decouverte-hero-1.jpg', alt: 'Vol découverte en parapente biplace' },
+    { src: '/images/galerie/vol-decouverte-hero-2.jpg', alt: 'Baptême de l\'air à La Réunion' },
+    { src: '/images/galerie/vol-decouverte-hero-3.jpg', alt: 'Vol tandem au-dessus du lagon' },
+    { src: '/images/galerie/vol-decouverte-hero-4.jpg', alt: 'Parapente biplace Saint-Leu' },
+    { src: '/images/galerie/vol-decouverte-hero-5.jpg', alt: 'Vol découverte océan Indien' },
+    { src: '/images/galerie/vol-decouverte-hero-6.jpg', alt: 'Baptême parapente Réunion' },
+    { src: '/images/galerie/vol-decouverte-hero-7.jpg', alt: 'Vol tandem tropical' },
   ];
 
   const images = customImages || defaultImages;

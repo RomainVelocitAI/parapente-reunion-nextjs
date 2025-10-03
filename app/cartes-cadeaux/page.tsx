@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { CONTACT } from '@/lib/constants'
 import { GiftCardCheckoutCard } from '@/components/gift-card-checkout-card'
+import { ArcGalleryHero } from '@/components/arc-gallery-hero-component'
 
 // CSS bounce animation
 const bounceStyle = `
@@ -20,28 +21,51 @@ const bounceStyle = `
 
 export default function CartesPage() {
   const [giftCards, setGiftCards] = useState([
-    { id: 'vol-decouverte-15', title: 'Vol Découverte 15min', price: 90, selected: false, quantity: 1 },
-    { id: 'vol-decouverte-20', title: 'Vol Découverte 20min', price: 100, selected: false, quantity: 1 },
-    { id: 'vol-decouverte-30', title: 'Vol Découverte 30min', price: 120, selected: false, quantity: 1 },
-    { id: 'vol-decouverte-40', title: 'Vol Découverte 40min', price: 140, selected: false, quantity: 1 },
-    { id: 'vol-decouverte-50', title: 'Vol Découverte 50min', price: 160, selected: false, quantity: 1 },
-    { id: 'vol-sunset', title: 'Vol Sunset', price: 100, selected: false, quantity: 1 },
-    { id: 'vol-marmaille', title: 'Vol Marmaille', price: 80, selected: false, quantity: 1 },
+    { id: 'vol-decouverte-15', title: 'Vol Découverte 15min', price: 90, selected: false, quantity: 1, isForGift: false },
+    { id: 'vol-decouverte-20', title: 'Vol Découverte 20min', price: 100, selected: false, quantity: 1, isForGift: false },
+    { id: 'vol-decouverte-30', title: 'Vol Découverte 30min', price: 120, selected: false, quantity: 1, isForGift: false },
+    { id: 'vol-decouverte-40', title: 'Vol Découverte 40min', price: 140, selected: false, quantity: 1, isForGift: false },
+    { id: 'vol-decouverte-50', title: 'Vol Découverte 50min', price: 160, selected: false, quantity: 1, isForGift: false },
+    { id: 'vol-sunset', title: 'Vol Sunset (min. 2 places)', price: 100, selected: false, quantity: 2, minQuantity: 2, isForGift: false },
+    { id: 'vol-marmaille', title: 'Vol Marmaille', price: 80, selected: false, quantity: 1, isForGift: true },
   ])
 
   const giftBoxImage = "/images/galerie/boitenobg.png"
+
+  const heroImages = [
+    '/images/galerie/vol-decouverte-hero-1.jpg',
+    '/images/galerie/vol-decouverte-hero-2.jpg',
+    '/images/galerie/vol-decouverte-hero-3.jpg',
+    '/images/galerie/vol-decouverte-hero-4.jpg',
+    '/images/galerie/vol-decouverte-hero-5.jpg',
+    '/images/galerie/vol-decouverte-hero-6.jpg',
+    '/images/galerie/vol-decouverte-hero-7.jpg',
+    '/images/galerie/formation-hero-1.jpg',
+    '/images/galerie/formation-hero-2.jpg',
+    '/images/galerie/formation-hero-3.jpg',
+    '/images/galerie/vol-marmaille-hero-1.jpg',
+    '/images/galerie/vol-marmaille-hero-2.jpg',
+    '/images/galerie/vol-marmaille-hero-3.jpg',
+    '/images/galerie/vol-marmaille-hero-4.jpg',
+    '/images/galerie/vol-marmaille-hero-5.jpg',
+  ]
 
   return (
     <main className="min-h-screen bg-white">
       {/* Inject bounce CSS */}
       <style>{bounceStyle}</style>
 
+      {/* Hero Section avec Arc Gallery */}
+      <ArcGalleryHero
+        images={heroImages}
+        title="Carte Cadeaux Parapente Réunion"
+        description="Offrez une expérience inoubliable et découvrez enfin pourquoi les oiseaux chantent"
+        hideButtons={true}
+      />
+
       {/* Gift Card Checkout Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 -mt-20">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-12">
-            Offrez une expérience inoubliable
-          </h1>
 
           <div className="relative">
             <GiftCardCheckoutCard

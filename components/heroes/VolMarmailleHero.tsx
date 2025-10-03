@@ -14,13 +14,13 @@ export function VolMarmailleHero({
   customImages,
 }: VolMarmailleHeroProps) {
   const defaultImages = [
-    { src: '/images/galerie/G0015444.webp', alt: 'Vol marmaille enfant parapente' },
-    { src: '/images/galerie/G0018702.webp', alt: 'Baptême de l\'air enfant La Réunion' },
-    { src: '/images/galerie/G0019469.webp', alt: 'Vol enfant sécurisé' },
-    { src: '/images/galerie/G0029937.webp', alt: 'Parapente adapté aux enfants' },
-    { src: '/images/galerie/G0033325.webp', alt: 'Découverte du ciel pour les enfants' },
-    { src: '/images/hero/saint-leu-la-reunion.webp', alt: 'Vol marmaille Saint-Leu' },
-    { src: '/images/galerie/formation1.jpg', alt: 'Encadrement enfants parapente' },
+    { src: '/images/galerie/vol-marmaille-hero-1.jpg', alt: 'Vol tandem enfant La Réunion' },
+    { src: '/images/galerie/vol-marmaille-hero-2.jpg', alt: 'Parapente enfant océan Indien' },
+    { src: '/images/galerie/vol-marmaille-hero-3.jpg', alt: 'Vol marmaille Saint-Leu' },
+    { src: '/images/galerie/vol-marmaille-hero-4.jpg', alt: 'Préparation vol enfant avec instructeur' },
+    { src: '/images/galerie/vol-marmaille-hero-5.jpg', alt: 'Vol tandem enfant Saint-Leu' },
+    { src: '/images/galerie/vol-marmaille-hero-6.jpg', alt: 'Apprentissage parapente enfant Réunion' },
+    { src: '/images/galerie/vol-marmaille-hero-7.jpg', alt: 'Vol marmaille encadré professionnel' },
   ];
 
   const images = customImages || defaultImages;

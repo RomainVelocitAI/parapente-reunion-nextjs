@@ -39,10 +39,10 @@ export default function VolMarmaillePage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/gallery/vol-marmaille-1.jpg',
-                '/images/gallery/vol-marmaille-2.jpg',
-                '/images/gallery/vol-marmaille-3.jpg',
-                '/images/gallery/vol-marmaille-4.jpg'
+                '/images/galerie/vol-marmaille-carousel-1.jpg',
+                '/images/galerie/vol-marmaille-carousel-2.jpg',
+                '/images/galerie/vol-marmaille-carousel-3.jpg',
+                '/images/galerie/vol-marmaille-carousel-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"

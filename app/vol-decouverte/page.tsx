@@ -50,10 +50,10 @@ export default function VolDecouvertePage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/gallery/vol-decouverte-1.jpg',
-                '/images/gallery/vol-decouverte-2.jpg',
-                '/images/gallery/vol-decouverte-3.jpg',
-                '/images/gallery/vol-decouverte-4.jpg'
+                '/images/galerie/vol-decouverte-slider-1.jpg',
+                '/images/galerie/vol-decouverte-slider-2.jpg',
+                '/images/galerie/vol-decouverte-slider-3.jpg',
+                '/images/galerie/vol-decouverte-slider-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"
