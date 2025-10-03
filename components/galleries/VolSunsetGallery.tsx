@@ -9,28 +9,28 @@ export function VolSunsetGallery() {
       title: "Un vol au coucher du soleil inoubliable",
       summary: "Le vol sunset est une expérience unique qui combine les sensations du parapente avec la magie d'un coucher de soleil sur l'océan Indien. Décollez en fin d'après-midi et profitez des couleurs exceptionnelles du ciel réunionnais.",
       url: "#",
-      image: "/images/galerie/G0015444.webp",
+      image: "/images/galerie/vol-sunset-carousel-1.jpg",
     },
     {
       id: "sunset-2",
       title: "Spectacle naturel inoubliable",
       summary: "Admirez le soleil qui plonge dans l'océan tandis que vous survolez les lagons de Saint-Leu. Les jeux de lumière sur l'eau et les montagnes créent un spectacle naturel inoubliable.",
       url: "#",
-      image: "/images/galerie/G0018702.webp",
+      image: "/images/galerie/vol-sunset-carousel-2.jpg",
     },
     {
       id: "sunset-3",
       title: "Horaire privilégié",
       summary: "Vol en fin d'après-midi pour le coucher de soleil. Une expérience romantique et magique, idéale à partager en duo ou entre amis.",
       url: "#",
-      image: "/images/galerie/G0019469.webp",
+      image: "/images/galerie/vol-sunset-carousel-3.jpg",
     },
     {
       id: "sunset-4",
       title: "Minimum 2 personnes",
       summary: "Expérience à partager à deux ou entre amis. Photos et vidéos incluses pour immortaliser ce moment unique.",
       url: "#",
-      image: "/images/galerie/G0029937.webp",
+      image: "/images/galerie/vol-sunset-carousel-4.jpg",
     },
   ];
 

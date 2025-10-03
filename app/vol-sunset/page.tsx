@@ -39,10 +39,10 @@ export default function VolSunsetPage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/gallery/vol-sunset-1.jpg',
-                '/images/gallery/vol-sunset-2.jpg',
-                '/images/gallery/vol-sunset-3.jpg',
-                '/images/gallery/vol-sunset-4.jpg'
+                '/images/galerie/vol-sunset-slider-1.jpg',
+                '/images/galerie/vol-sunset-slider-2.jpg',
+                '/images/galerie/vol-sunset-slider-3.jpg',
+                '/images/galerie/vol-sunset-slider-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"

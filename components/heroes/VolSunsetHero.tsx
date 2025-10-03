@@ -14,13 +14,13 @@ export function VolSunsetHero({
   customImages,
 }: VolSunsetHeroProps) {
   const defaultImages = [
-    { src: '/images/galerie/G0015444.webp', alt: 'Vol sunset coucher de soleil parapente' },
-    { src: '/images/galerie/G0018702.webp', alt: 'Parapente au coucher du soleil' },
-    { src: '/images/galerie/G0019469.webp', alt: 'Vol romantique sunset La Réunion' },
-    { src: '/images/galerie/G0029937.webp', alt: 'Coucher de soleil océan Indien parapente' },
-    { src: '/images/galerie/G0033325.webp', alt: 'Vol en fin de journée' },
-    { src: '/images/hero/saint-leu-la-reunion.webp', alt: 'Sunset Saint-Leu parapente' },
-    { src: '/images/galerie/G0015444.webp', alt: 'Vol magique coucher de soleil' },
+    { src: '/images/galerie/vol-sunset-hero-1.jpg', alt: 'Vol sunset coucher de soleil parapente Saint-Leu' },
+    { src: '/images/galerie/vol-sunset-hero-2.jpg', alt: 'Parapente au coucher du soleil océan Indien' },
+    { src: '/images/galerie/vol-sunset-hero-3.jpg', alt: 'Vol romantique sunset La Réunion' },
+    { src: '/images/galerie/vol-sunset-hero-4.jpg', alt: 'Coucher de soleil parapente biplace' },
+    { src: '/images/galerie/vol-sunset-hero-5.jpg', alt: 'Vol en fin de journée Saint-Leu' },
+    { src: '/images/galerie/vol-sunset-hero-6.jpg', alt: 'Sunset parapente Réunion' },
+    { src: '/images/galerie/vol-sunset-hero-7.jpg', alt: 'Vol magique coucher de soleil' },
   ];
 
   const images = customImages || defaultImages;
