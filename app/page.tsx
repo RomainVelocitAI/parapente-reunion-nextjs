@@ -1,5 +1,5 @@
 import HeroVideo from '@/components/home/HeroVideo'
-// import ScrollyStats from '@/components/home/ScrollyStats'
+import ScrollyStats from '@/components/home/ScrollyStats'
 // import ServicesGrid from '@/components/home/ServicesGrid'
 // import ExperienceTimeline from '@/components/home/ExperienceTimeline'
 // import GiftCards from '@/components/home/GiftCards'
@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroVideo />
+      <ScrollyStats />
 
-      {/* <ScrollyStats /> */}
       {/* <ServicesGrid /> */}
       {/* <ExperienceTimeline /> */}
       {/* <GiftCards /> */}
