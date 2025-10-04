@@ -71,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${pacifico.variable}`}>
-      <body className="antialiased font-sans">
+      <body className="antialiased font-sans overflow-x-hidden">
         <AnnouncementBar />
         <Header />
         <main className="pt-32">

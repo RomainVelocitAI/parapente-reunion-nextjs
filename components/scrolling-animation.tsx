@@ -106,7 +106,7 @@ export function HomePage() {
         <div className="min-h-screen flex items-center justify-center p-4 sm:p-8 md:sticky md:top-0">
           <div className="relative w-full max-w-[600px]">
             <div
-              className={`w-full aspect-square max-w-[600px] mx-auto rounded-full flex items-center justify-center transition-all duration-500 ${
+              className={`w-full aspect-square mx-auto rounded-full flex items-center justify-center transition-all duration-500 ${
                 (isMobile || scrollProgress > 0.6) ? "border-2 border-[#e9e9e9] dark:border-gray-700" : ""
               }`}
             >
@@ -154,12 +154,12 @@ export function HomePage() {
                     })}
 
                     <div
-                      className={`flex flex-col items-center justify-center relative z-20 transition-opacity duration-500 px-4 ${
+                      className={`flex flex-col items-center justify-center relative z-20 transition-opacity duration-500 px-4 max-w-full ${
                         (isMobile || scrollProgress > 0.5) ? "opacity-100" : "opacity-0"
                       }`}
                     >
-                      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#021157] text-center mb-2 font-pacifico">Ils ont volé avec</h1>
-                      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#021157] text-center mb-4 font-pacifico">Parapente Réunion</h1>
+                      <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-2 font-pacifico max-w-full break-words">Ils ont volé avec</h1>
+                      <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-4 font-pacifico max-w-full break-words">Parapente Réunion</h1>
 
                       <p className="text-sm sm:text-base text-[#021157]/80 text-center max-w-xs mb-6">
                         Découvrez les témoignages de nos pilotes et passagers
@@ -188,7 +188,7 @@ export function HomePage() {
       {/* Modal vidéo */}
       {selectedVideo && (
         <div
-          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4 overflow-hidden"
           onClick={closeModal}
         >
           <button
@@ -198,7 +198,7 @@ export function HomePage() {
             <X className="w-8 h-8" />
           </button>
           <div
-            className="relative w-full max-w-4xl aspect-video"
+            className="relative w-full max-w-[95vw] md:max-w-4xl aspect-video"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
