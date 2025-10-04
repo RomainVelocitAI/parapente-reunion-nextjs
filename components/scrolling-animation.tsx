@@ -167,8 +167,8 @@ export function HomePage() {
                         (isMobile || scrollProgress > 0.5) ? "opacity-100" : "opacity-0"
                       }`}
                     >
-                      <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-2 font-pacifico max-w-full break-words">Ils ont volé avec</h1>
-                      <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-4 font-pacifico max-w-full break-words">Parapente Réunion</h1>
+                      <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-2 font-pacifico max-w-full break-words">Ils ont volé avec</h2>
+                      <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#021157] text-center mb-4 font-pacifico max-w-full break-words">Parapente Réunion</h2>
 
                       <p className="text-sm sm:text-base text-[#021157]/80 text-center max-w-xs mb-6">
                         Découvrez les témoignages de nos pilotes et passagers

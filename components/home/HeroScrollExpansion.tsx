@@ -28,9 +28,9 @@ export default function HeroScrollExpansion() {
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Section principale */}
         <div className="text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#021157]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#021157]">
             Des sensations inoubliables au-dessus du lagon
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Vivez l'expérience unique du parapente en biplace à Saint-Leu, La Réunion.
             Survolez le lagon turquoise avec nos moniteurs diplômés d'État.

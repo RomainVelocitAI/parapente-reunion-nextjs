@@ -33,7 +33,7 @@ export function TarifFAQ({
         />
         <div>
           <p className="text-indigo-600 text-sm font-medium">FAQ's</p>
-          <h1 className="text-3xl font-semibold">{title}</h1>
+          <h2 className="text-3xl font-semibold">{title}</h2>
           <p className="text-sm text-slate-500 mt-2 pb-4">
             {subtitle}
           </p>
