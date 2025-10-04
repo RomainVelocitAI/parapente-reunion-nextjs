@@ -113,12 +113,26 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Fallback font with size-adjust to match Inter metrics */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica'), local('system-ui');
+  size-adjust: 102%;
+  ascent-override: 97%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply overflow-x-hidden;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: var(--font-inter), 'Inter Fallback', system-ui, -apple-system, sans-serif;
   }
 }
 

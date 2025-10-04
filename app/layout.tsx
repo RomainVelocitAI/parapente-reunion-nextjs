@@ -7,14 +7,14 @@ import Footer from "@/components/layout/Footer"
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   variable: "--font-inter",
 })
 
 const pacifico = Pacifico({
   weight: "400",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   variable: "--font-pacifico",
 })
 
@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description: "Vivez l'expérience unique du parapente à Saint-Leu, La Réunion. Vol tandem au-dessus du lagon avec moniteurs diplômés d'État. 300 jours de vol par an depuis 1990.",
   keywords: ['parapente réunion', 'baptême parapente', 'vol tandem saint-leu', 'parapente 974', 'vol parapente la réunion'],
   authors: [{ name: 'Parapente Réunion' }],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: 'Parapente Réunion - Sensations Inoubliables à Saint-Leu',
     description: 'Vol tandem parapente au-dessus du lagon turquoise. Moniteurs diplômés, 300 jours de vol par an.',
