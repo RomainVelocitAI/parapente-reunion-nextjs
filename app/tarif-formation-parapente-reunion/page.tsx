@@ -1,37 +1,95 @@
-'use client'
-
-import { Phone, Shield, Heart, Camera, Users } from 'lucide-react'
+import { Phone, Award, BookOpen, Users, Target } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
-import { VolMarmailleHero } from '@/components/heroes/VolMarmailleHero'
-import { VolMarmailleGallery } from '@/components/galleries/VolMarmailleGallery'
+import { FormationParapenteHero } from '@/components/heroes/FormationParapenteHero'
+import { FormationGallery } from '@/components/galleries/FormationGallery'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
 import { TarifFAQ } from '@/components/TarifFAQ'
-import { faqVolMarmaille } from '@/lib/faq-data'
+import { faqFormation } from '@/lib/faq-data'
+import { generateProductSchema, generateFAQSchema } from '@/lib/schemas/organization'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
-export default function VolMarmaillePage() {
+export const metadata = {
+  title: 'Formation Parapente Réunion | Stage & Brevet Saint-Leu - Moniteurs Diplômés',
+  description: 'Formation parapente à La Réunion : stage découverte, perfectionnement et préparation brevet. École agréée FFVL avec moniteurs diplômés à Saint-Leu. Devis sur mesure.',
+  keywords: 'formation parapente réunion, stage parapente saint-leu, brevet parapente 974, école parapente réunion, apprentissage parapente',
+  authors: [{ name: 'Parapente Réunion', url: 'https://parapente-reunion.fr/ecole-parapente-reunion' }],
+  creator: 'Parapente Réunion',
+  publisher: 'Parapente Réunion',
+}
+
+export default function FormationParapentePage() {
+  const etapes = [
+    {
+      titre: 'Stage découverte',
+      duree: '3 à 5 jours',
+      description: 'Apprentissage des bases du parapente : gonflage de la voile, décollage, vol en ligne droite et atterrissage'
+    },
+    {
+      titre: 'Stage perfectionnement',
+      duree: '5 à 10 jours',
+      description: 'Techniques de pilotage avancées, exploitation des conditions aérologiques, vols en thermique'
+    },
+    {
+      titre: 'Préparation au brevet',
+      duree: 'Sur mesure',
+      description: 'Formation théorique et pratique pour l obtention du brevet de pilote de parapente'
+    }
+  ]
+
+  const productSchema = generateProductSchema({
+    name: "Formation Parapente Réunion",
+    description: "Formation parapente à La Réunion : stage découverte, perfectionnement et préparation brevet. École agréée FFVL avec moniteurs diplômés à Saint-Leu.",
+    image: "https://parapente-reunion.fr/images/galerie/formation-slider-1.jpg",
+    lowPrice: "500",
+    highPrice: "2000",
+    url: "https://parapente-reunion.fr/tarif-formation-parapente-reunion",
+    reviewCount: "78",
+    ratingValue: "4.9"
+  })
+
+  const faqSchema = generateFAQSchema(faqFormation)
+
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <main className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Tarifs', href: '/#tarifs' },
+            { label: 'Formation Parapente', href: '/tarif-formation-parapente-reunion' },
+          ]}
+        />
+      </div>
       {/* Hero Section avec Zoom Parallax */}
-      <VolMarmailleHero />
+      <FormationParapenteHero />
 
       {/* Gallery Hover Carousel */}
-      <VolMarmailleGallery />
+      <FormationGallery />
 
       {/* Tarif Section - Style Cartes Cadeaux */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-16">
-            Tarif Vol Marmaille
+            Tarif Formation
           </h2>
 
           <div className="flex justify-center mb-16">
             <ShirtParallaxCard
-              title="Vol Marmaille"
-              description="Vol adapté pour les enfants dès 4 ans. Encadrement spécialisé avec moniteurs diplômés habitués aux plus jeunes."
-              price="80€"
-              imageUrl="/images/paraglider-pixar-chinois.png"
-              buttonText="Réserver"
+              title="Formation Parapente"
+              description="Chaque formation est adaptée à votre niveau et vos objectifs. Stage découverte, perfectionnement ou préparation brevet. Matériel pédagogique fourni."
+              price="Sur devis"
+              imageUrl="/images/paraglider-pixar-metis.png"
+              buttonText="Demander un devis"
               buttonHref={`tel:${CONTACT.phone1}`}
               className="w-full max-w-md md:max-w-3xl"
             />
@@ -41,26 +99,26 @@ export default function VolMarmaillePage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/galerie/vol-marmaille-carousel-1.jpg',
-                '/images/galerie/vol-marmaille-carousel-2.jpg',
-                '/images/galerie/vol-marmaille-carousel-3.jpg',
-                '/images/galerie/vol-marmaille-carousel-4.jpg'
+                '/images/galerie/formation-slider-1.jpg',
+                '/images/galerie/formation-slider-2.jpg',
+                '/images/galerie/formation-slider-3.jpg',
+                '/images/galerie/formation-slider-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"
             />
           </div>
 
-          {/* Infos parents - Premium Card */}
+          {/* Infos Formation - Premium Card */}
           <div className="relative mb-12 max-w-4xl mx-auto">
             <div className="bg-[#021157] border border-[#021157] rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 group">
               {/* Header */}
               <div className="p-8 text-center">
                 <h3 className="text-3xl font-bold text-white mb-2">
-                  Informations pour les parents
+                  Pourquoi se former avec nous
                 </h3>
                 <p className="text-white/90 text-sm">
-                  Votre enfant entre de bonnes mains
+                  Une formation de qualité dans un cadre exceptionnel
                 </p>
               </div>
 
@@ -70,12 +128,12 @@ export default function VolMarmaillePage() {
                   {/* Card 1 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Users className="w-6 h-6 text-[#021157]" />
+                      <Award className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700">
-                      <h4 className="font-bold text-[#021157] mb-1">Présence parentale</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Formation FFVL</h4>
                       <p className="text-sm text-gray-700">
-                        Un parent doit être présent lors du décollage et de l'atterrissage
+                        Programme reconnu par la Fédération Française de Vol Libre
                       </p>
                     </div>
                   </div>
@@ -83,12 +141,12 @@ export default function VolMarmaillePage() {
                   {/* Card 2 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Shield className="w-6 h-6 text-[#021157]" />
+                      <Users className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-150">
-                      <h4 className="font-bold text-[#021157] mb-1">Autorisation requise</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Petits groupes</h4>
                       <p className="text-sm text-gray-700">
-                        Autorisation parentale écrite obligatoire pour le vol
+                        Encadrement personnalisé pour une progression optimale
                       </p>
                     </div>
                   </div>
@@ -96,12 +154,12 @@ export default function VolMarmaillePage() {
                   {/* Card 3 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Heart className="w-6 h-6 text-[#021157]" />
+                      <BookOpen className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700 delay-300">
-                      <h4 className="font-bold text-[#021157] mb-1">Vol adapté</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Théorie et pratique</h4>
                       <p className="text-sm text-gray-700">
-                        Durée et intensité ajustées selon l'âge et le confort de l'enfant
+                        Formation complète alliant cours théoriques et vols encadrés
                       </p>
                     </div>
                   </div>
@@ -109,12 +167,12 @@ export default function VolMarmaillePage() {
                   {/* Card 4 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Camera className="w-6 h-6 text-[#021157]" />
+                      <Target className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-450">
-                      <h4 className="font-bold text-[#021157] mb-1">Souvenirs immortalisés</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Site privilégié</h4>
                       <p className="text-sm text-gray-700">
-                        Photos et vidéos disponibles pour garder ce moment unique
+                        Saint-Leu, site mondialement reconnu pour la formation parapente
                       </p>
                     </div>
                   </div>
@@ -123,23 +181,23 @@ export default function VolMarmaillePage() {
             </div>
           </div>
 
-          {/* CTA Réservation */}
+          {/* CTA Contact */}
           <div className="bg-white border-2 border-[#021157] rounded-2xl p-8 md:p-12 text-center shadow-xl hover:shadow-2xl transition-all duration-300">
             <h3 className="text-3xl md:text-4xl font-bold text-[#021157] mb-4">
-              Offrez une aventure à votre enfant
+              Devenez pilote de parapente
             </h3>
             <p className="text-xl text-[#021157]/80 mb-8">
-              Réservez le vol marmaille par téléphone
+              Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé
             </p>
             <a
               href={`tel:${CONTACT.phone1}`}
               className="inline-flex items-center gap-3 bg-[#FFD700] text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-[#FFC700] transition-all hover:scale-105 shadow-lg"
             >
               <Phone className="w-6 h-6" />
-              Appelez pour réserver
+              Demander un devis
             </a>
             <p className="text-[#021157]/70 mt-6 text-sm">
-              Autorisation parentale requise • À partir de 4 ans • Encadrement spécialisé
+              Formation FFVL • Certificat médical requis • Devis personnalisé gratuit
             </p>
           </div>
         </div>
@@ -147,11 +205,12 @@ export default function VolMarmaillePage() {
 
       {/* FAQ Section */}
       <TarifFAQ
-        faqs={faqVolMarmaille}
-        title="Questions fréquentes sur le vol marmaille"
-        subtitle="Tout savoir sur le parapente pour enfants"
-        imageUrl="/images/galerie/vol-marmaille-carousel-1.jpg"
+        faqs={faqFormation}
+        title="Questions fréquentes sur la formation"
+        subtitle="Tout savoir pour devenir pilote de parapente"
+        imageUrl="/images/galerie/formation-slider-1.jpg"
       />
     </main>
+    </>
   )
 }

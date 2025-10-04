@@ -13,15 +13,14 @@ const navigation = [
     name: 'Tarifs et réservations',
     href: '#',
     submenu: [
-      { name: 'Vol Découverte', href: '/vol-decouverte' },
-      { name: 'Vol Sunset', href: '/vol-sunset' },
-      { name: 'Vol Marmaille', href: '/vol-marmaille' },
-      { name: 'Formation', href: '/formation-parapente' },
+      { name: 'Vol Découverte', href: '/tarif-bapteme-parapente-reunion-saint-leu' },
+      { name: 'Vol Sunset', href: '/tarif-vol-sunset-parapente-reunion' },
+      { name: 'Vol Marmaille', href: '/tarif-parapente-enfant-reunion' },
+      { name: 'Formation', href: '/tarif-formation-parapente-reunion' },
     ]
   },
-  { name: 'Boutique cadeau', href: '/cartes-cadeaux' },
-  { name: 'A propos', href: '#a-propos' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Boutique cadeau', href: '/tarif-carte-cadeau-parapente-reunion' },
+  { name: 'À propos', href: '/ecole-parapente-reunion' },
 ]
 
 export default function Header() {

@@ -1,55 +1,77 @@
-'use client'
-
-import { Phone, Award, BookOpen, Users, Target } from 'lucide-react'
+import { Phone, Sunset, Heart, Star, Users } from 'lucide-react'
 import { CONTACT } from '@/lib/constants'
-import { FormationParapenteHero } from '@/components/heroes/FormationParapenteHero'
-import { FormationGallery } from '@/components/galleries/FormationGallery'
+import { VolSunsetHero } from '@/components/heroes/VolSunsetHero'
+import { VolSunsetGallery } from '@/components/galleries/VolSunsetGallery'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
 import { TarifFAQ } from '@/components/TarifFAQ'
-import { faqFormation } from '@/lib/faq-data'
+import { faqVolSunset } from '@/lib/faq-data'
+import { generateProductSchema, generateFAQSchema } from '@/lib/schemas/organization'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
-export default function FormationParapentePage() {
-  const etapes = [
-    {
-      titre: 'Stage découverte',
-      duree: '3 à 5 jours',
-      description: 'Apprentissage des bases du parapente : gonflage de la voile, décollage, vol en ligne droite et atterrissage'
-    },
-    {
-      titre: 'Stage perfectionnement',
-      duree: '5 à 10 jours',
-      description: 'Techniques de pilotage avancées, exploitation des conditions aérologiques, vols en thermique'
-    },
-    {
-      titre: 'Préparation au brevet',
-      duree: 'Sur mesure',
-      description: 'Formation théorique et pratique pour l obtention du brevet de pilote de parapente'
-    }
-  ]
+export const metadata = {
+  title: 'Vol Sunset Parapente Réunion | Coucher de Soleil Saint-Leu - 100€',
+  description: 'Vol parapente au coucher de soleil à La Réunion. Admirez le sunset sur l\'océan Indien depuis le ciel. Vol tandem sunset Saint-Leu avec moniteur diplômé - 100€',
+  keywords: 'vol sunset réunion, parapente coucher soleil saint-leu, vol tandem sunset 974, parapente sunset réunion',
+  authors: [{ name: 'Parapente Réunion', url: 'https://parapente-reunion.fr/ecole-parapente-reunion' }],
+  creator: 'Parapente Réunion',
+  publisher: 'Parapente Réunion',
+}
+
+export default function VolSunsetPage() {
+  const productSchema = generateProductSchema({
+    name: "Vol Sunset Parapente Réunion",
+    description: "Vol tandem parapente au coucher de soleil à Saint-Leu. Admirez le sunset sur l'océan Indien depuis le ciel avec moniteur diplômé.",
+    image: "https://parapente-reunion.fr/images/galerie/vol-sunset-hero-1.jpg",
+    lowPrice: "100",
+    highPrice: "100",
+    url: "https://parapente-reunion.fr/tarif-vol-sunset-parapente-reunion",
+    reviewCount: "125",
+    ratingValue: "5.0"
+  })
+
+  const faqSchema = generateFAQSchema(faqVolSunset)
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <main className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Tarifs', href: '/#tarifs' },
+            { label: 'Vol Sunset', href: '/tarif-vol-sunset-parapente-reunion' },
+          ]}
+        />
+      </div>
       {/* Hero Section avec Zoom Parallax */}
-      <FormationParapenteHero />
+      <VolSunsetHero />
 
       {/* Gallery Hover Carousel */}
-      <FormationGallery />
+      <VolSunsetGallery />
 
       {/* Tarif Section - Style Cartes Cadeaux */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-[#021157] text-center mb-16">
-            Tarif Formation
+            Tarif Vol Sunset
           </h2>
 
           <div className="flex justify-center mb-16">
             <ShirtParallaxCard
-              title="Formation Parapente"
-              description="Chaque formation est adaptée à votre niveau et vos objectifs. Stage découverte, perfectionnement ou préparation brevet. Matériel pédagogique fourni."
-              price="Sur devis"
-              imageUrl="/images/paraglider-pixar-metis.png"
-              buttonText="Demander un devis"
+              title="Vol Sunset"
+              description="Vivez un coucher de soleil magique en vol biplace au-dessus de l'océan Indien. Minimum 2 personnes pour cette expérience inoubliable."
+              price="100€"
+              imageUrl="/images/paraglider-pixar.png"
+              buttonText="Réserver"
               buttonHref={`tel:${CONTACT.phone1}`}
               className="w-full max-w-md md:max-w-3xl"
             />
@@ -59,26 +81,26 @@ export default function FormationParapentePage() {
           <div className="mb-16">
             <ImageAutoSlider
               images={[
-                '/images/galerie/formation-slider-1.jpg',
-                '/images/galerie/formation-slider-2.jpg',
-                '/images/galerie/formation-slider-3.jpg',
-                '/images/galerie/formation-slider-4.jpg'
+                '/images/galerie/vol-sunset-slider-1.jpg',
+                '/images/galerie/vol-sunset-slider-2.jpg',
+                '/images/galerie/vol-sunset-slider-3.jpg',
+                '/images/galerie/vol-sunset-slider-4.jpg'
               ]}
               interval={25}
               className="bg-white rounded-2xl"
             />
           </div>
 
-          {/* Infos Formation - Premium Card */}
+          {/* Infos Vol Sunset - Premium Card */}
           <div className="relative mb-12 max-w-4xl mx-auto">
             <div className="bg-[#021157] border border-[#021157] rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 group">
               {/* Header */}
               <div className="p-8 text-center">
                 <h3 className="text-3xl font-bold text-white mb-2">
-                  Pourquoi se former avec nous
+                  Une expérience romantique unique
                 </h3>
                 <p className="text-white/90 text-sm">
-                  Une formation de qualité dans un cadre exceptionnel
+                  Le vol idéal pour un moment magique à deux
                 </p>
               </div>
 
@@ -88,12 +110,12 @@ export default function FormationParapentePage() {
                   {/* Card 1 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Award className="w-6 h-6 text-[#021157]" />
+                      <Sunset className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700">
-                      <h4 className="font-bold text-[#021157] mb-1">Formation FFVL</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Lumière dorée</h4>
                       <p className="text-sm text-gray-700">
-                        Programme reconnu par la Fédération Française de Vol Libre
+                        Admirez les couleurs incroyables du coucher de soleil sur l'océan Indien
                       </p>
                     </div>
                   </div>
@@ -101,12 +123,12 @@ export default function FormationParapentePage() {
                   {/* Card 2 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Users className="w-6 h-6 text-[#021157]" />
+                      <Heart className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-150">
-                      <h4 className="font-bold text-[#021157] mb-1">Petits groupes</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Moment romantique</h4>
                       <p className="text-sm text-gray-700">
-                        Encadrement personnalisé pour une progression optimale
+                        Idéal pour une demande en mariage ou un moment privilégié en couple
                       </p>
                     </div>
                   </div>
@@ -114,12 +136,12 @@ export default function FormationParapentePage() {
                   {/* Card 3 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <BookOpen className="w-6 h-6 text-[#021157]" />
+                      <Star className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-left-3 duration-700 delay-300">
-                      <h4 className="font-bold text-[#021157] mb-1">Théorie et pratique</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Photos exceptionnelles</h4>
                       <p className="text-sm text-gray-700">
-                        Formation complète alliant cours théoriques et vols encadrés
+                        Des photos et vidéos dans une ambiance magique et des couleurs uniques
                       </p>
                     </div>
                   </div>
@@ -127,12 +149,12 @@ export default function FormationParapentePage() {
                   {/* Card 4 */}
                   <div className="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-xl hover:border-[#021157] hover:shadow-lg transition-all duration-300 group/card">
                     <div className="flex-shrink-0 w-12 h-12 bg-[#021157]/10 rounded-full flex items-center justify-center group-hover/card:bg-[#021157]/20 transition-colors">
-                      <Target className="w-6 h-6 text-[#021157]" />
+                      <Users className="w-6 h-6 text-[#021157]" />
                     </div>
                     <div className="flex-1 animate-in fade-in slide-in-from-right-3 duration-700 delay-450">
-                      <h4 className="font-bold text-[#021157] mb-1">Site privilégié</h4>
+                      <h4 className="font-bold text-[#021157] mb-1">Vol en groupe</h4>
                       <p className="text-sm text-gray-700">
-                        Saint-Leu, site mondialement reconnu pour la formation parapente
+                        Minimum 2 personnes pour partager cette expérience inoubliable
                       </p>
                     </div>
                   </div>
@@ -141,23 +163,23 @@ export default function FormationParapentePage() {
             </div>
           </div>
 
-          {/* CTA Contact */}
+          {/* CTA Réservation */}
           <div className="bg-white border-2 border-[#021157] rounded-2xl p-8 md:p-12 text-center shadow-xl hover:shadow-2xl transition-all duration-300">
             <h3 className="text-3xl md:text-4xl font-bold text-[#021157] mb-4">
-              Devenez pilote de parapente
+              Vivez un coucher de soleil d'exception
             </h3>
             <p className="text-xl text-[#021157]/80 mb-8">
-              Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé
+              Réservez votre vol sunset par téléphone
             </p>
             <a
               href={`tel:${CONTACT.phone1}`}
               className="inline-flex items-center gap-3 bg-[#FFD700] text-[#021157] px-8 py-4 rounded-full text-xl font-bold hover:bg-[#FFC700] transition-all hover:scale-105 shadow-lg"
             >
               <Phone className="w-6 h-6" />
-              Demander un devis
+              Réserver maintenant
             </a>
             <p className="text-[#021157]/70 mt-6 text-sm">
-              Formation FFVL • Certificat médical requis • Devis personnalisé gratuit
+              Réservation obligatoire • Minimum 2 personnes • Horaires selon météo
             </p>
           </div>
         </div>
@@ -165,11 +187,12 @@ export default function FormationParapentePage() {
 
       {/* FAQ Section */}
       <TarifFAQ
-        faqs={faqFormation}
-        title="Questions fréquentes sur la formation"
-        subtitle="Tout savoir pour devenir pilote de parapente"
-        imageUrl="/images/galerie/formation-slider-1.jpg"
+        faqs={faqVolSunset}
+        title="Questions fréquentes sur le vol sunset"
+        subtitle="Tout savoir sur le vol au coucher de soleil"
+        imageUrl="/images/galerie/vol-sunset-slider-1.jpg"
       />
     </main>
+    </>
   )
 }

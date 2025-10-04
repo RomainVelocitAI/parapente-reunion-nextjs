@@ -7,13 +7,22 @@ import { CONTACT, HOURS, SOCIAL } from '@/lib/constants'
 
 const footerLinks = {
   vols: [
-    { name: 'Vol Découverte', href: '/tarif-bapteme-parapente-reunion-saint-leu' },
-    { name: 'Vol Marmaille', href: '/tarif-parapente-enfant-reunion' },
-    { name: 'Vol Sunset', href: '/tarif-vol-sunset-parapente-reunion' },
-    { name: 'Cartes cadeaux', href: '/tarif-carte-cadeau-parapente-reunion' },
+    { name: 'Vol Découverte', href: '/#vols' },
+    { name: 'Vol Marmaille', href: '/#vols' },
+    { name: 'Vol Sunset', href: '/#vols' },
+    { name: 'Cartes cadeaux', href: '/#cartes-cadeaux' },
   ],
   formation: [
-    { name: 'Formation parapente', href: '/tarif-formation-parapente-reunion' },
+    { name: 'Stage initiation', href: '/#stages' },
+    { name: 'Stage perfectionnement', href: '/#stages' },
+    { name: 'Brevet de pilote', href: '/#stages' },
+    { name: 'Biplace pédagogique', href: '/#stages' },
+  ],
+  entreprise: [
+    { name: 'À propos', href: '/#apropos' },
+    { name: 'Notre équipe', href: '/#equipe' },
+    { name: 'Galerie photos', href: '/#galerie' },
+    { name: 'Contact', href: '/#contact' },
   ],
 }
 
@@ -156,6 +165,7 @@ export default function Footer() {
                 <a
                   href="https://digiqo.fr"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Digiqo
@@ -169,6 +179,9 @@ export default function Footer() {
               </Link>
               <Link href="/cgv" className="text-gray-400 hover:text-white transition-colors">
                 CGV
+              </Link>
+              <Link href="/confidentialite" className="text-gray-400 hover:text-white transition-colors">
+                Confidentialité
               </Link>
             </div>
           </div>

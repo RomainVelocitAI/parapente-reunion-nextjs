@@ -111,3 +111,34 @@ export const faqFormation = [
     answer: "Oui, tout le matériel pédagogique est fourni durant la formation : parapente école homologué, sellette confortable, casque, radio, sac de portage. Vous n'avez besoin que de chaussures montantes et vêtements adaptés. L'investissement dans votre propre matériel se fait généralement après le stage perfectionnement, nous vous conseillons selon votre niveau et objectifs."
   }
 ]
+
+export const faqCartesCadeaux = [
+  {
+    question: "Comment fonctionne la carte cadeau parapente à La Réunion ?",
+    answer: "Notre carte cadeau parapente est valable 1 an à compter de la date d'achat. Le bénéficiaire réserve directement son vol par téléphone au 0692 82 92 92 en communiquant le numéro de carte. Nous adaptons la date et l'heure selon les meilleures conditions météo. La carte cadeau peut être envoyée par email ou retirée sur place."
+  },
+  {
+    question: "Quelle formule cadeau choisir pour un baptême parapente ?",
+    answer: "Pour un premier vol, nous recommandons le Vol Découverte 30min (120€) qui offre le meilleur équilibre durée/sensation. Pour une expérience exceptionnelle, le Vol Sunset (100€, minimum 2 personnes) au coucher du soleil est inoubliable. Le Vol Marmaille (80€) est parfait pour les enfants dès 5 ans."
+  },
+  {
+    question: "Peut-on offrir une carte cadeau pour plusieurs personnes ?",
+    answer: "Absolument ! Vous pouvez acheter plusieurs cartes cadeaux pour un groupe d'amis ou votre famille. Le Vol Sunset nécessite un minimum de 2 personnes et se prête parfaitement aux cadeaux de groupe. Contactez-nous pour des formules personnalisées pour les comités d'entreprise ou événements spéciaux."
+  },
+  {
+    question: "La carte cadeau parapente a-t-elle une date d'expiration ?",
+    answer: "Oui, nos cartes cadeaux sont valables 1 an à partir de la date d'achat. Ce délai permet au bénéficiaire de choisir la meilleure période pour voler (nous volons 300 jours par an). En cas de force majeure (problème de santé, confinement), nous pouvons étudier une prolongation exceptionnelle."
+  },
+  {
+    question: "Comment le bénéficiaire réserve-t-il son vol avec la carte cadeau ?",
+    answer: "Le bénéficiaire contacte directement notre école au 0692 82 92 92 ou 0262 24 87 84 avec le numéro de carte cadeau. Nous planifions ensemble la date idéale selon les conditions météo et ses disponibilités. La réservation doit se faire minimum 48h à l'avance pour garantir la disponibilité."
+  },
+  {
+    question: "Puis-je personnaliser ma carte cadeau parapente ?",
+    answer: "Oui, lors de l'achat vous pouvez ajouter un message personnalisé qui apparaîtra sur la carte cadeau (maximum 200 caractères). Vous pouvez également choisir de recevoir la carte par email pour l'imprimer vous-même ou la récupérer directement à notre école à Saint-Leu. Nous pouvons aussi l'envoyer directement au destinataire."
+  },
+  {
+    question: "Que se passe-t-il si le bénéficiaire ne peut pas voler pour raison météo ?",
+    answer: "Aucun souci ! Si les conditions météo ne permettent pas le vol le jour prévu, nous reportons simplement le vol à une autre date. La carte cadeau reste valable pendant 1 an, ce qui laisse largement le temps de trouver une belle fenêtre météo. Nous volons 300 jours par an à Saint-Leu, les opportunités sont nombreuses."
+  }
+]

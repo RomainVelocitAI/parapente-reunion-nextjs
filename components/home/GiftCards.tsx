@@ -48,14 +48,14 @@ export default function GiftCards() {
               price={card.price}
               imageUrl={card.imageUrl}
               buttonText="Offrir"
-              buttonHref={`/cartes-cadeaux#${card.id}`}
+              buttonHref={`/tarif-carte-cadeau-parapente-reunion#${card.id}`}
             />
           ))}
         </div>
 
         <div className="text-center mt-12">
           <a
-            href="/cartes-cadeaux"
+            href="/tarif-carte-cadeau-parapente-reunion"
             className="inline-block text-[#021157] hover:text-[#021157]/70 font-semibold text-lg hover:underline"
           >
             Voir toutes nos cartes cadeaux →

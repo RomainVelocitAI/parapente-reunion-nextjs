@@ -27,11 +27,20 @@ export function HomePage() {
       if (!sectionRef.current) return
 
       const rect = sectionRef.current.getBoundingClientRect()
-      const sectionTop = window.scrollY + rect.top
+      const windowHeight = window.innerHeight
+      const sectionHeight = rect.height
 
-      // L'animation commence uniquement après avoir scrollé dans la section
-      const scrollFromSectionStart = Math.max(0, window.scrollY - sectionTop)
-      const progress = Math.max(0, Math.min(scrollFromSectionStart / 1000, 1))
+      // Calculer le pourcentage de la section qui est visible
+      const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0)
+      const visiblePercentage = Math.max(0, visibleHeight / sectionHeight)
+
+      // L'animation commence quand 30% de la section est visible
+      // Elle progresse jusqu'à 100% quand la section est complètement visible
+      let progress = 0
+      if (visiblePercentage >= 0.3) {
+        // Mapper 30%-100% de visibilité vers 0%-100% de progress
+        progress = Math.min((visiblePercentage - 0.3) / 0.7, 1)
+      }
 
       setScrollProgress(progress)
     }
@@ -102,8 +111,8 @@ export function HomePage() {
 
   return (
     <>
-      <div ref={sectionRef} className="min-h-screen md:min-h-[200vh] bg-[#ffffff] dark:bg-black">
-        <div className="min-h-screen flex items-center justify-center p-4 sm:p-8 md:sticky md:top-0">
+      <div ref={sectionRef} className="min-h-[50vh] bg-[#ffffff] dark:bg-black">
+        <div className="min-h-[50vh] flex items-center justify-center p-4 sm:p-8">
           <div className="relative w-full max-w-[600px]">
             <div
               className={`w-full aspect-square mx-auto rounded-full flex items-center justify-center transition-all duration-500 ${

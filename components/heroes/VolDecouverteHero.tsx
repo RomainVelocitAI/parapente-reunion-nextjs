@@ -11,7 +11,7 @@ interface VolDecouverteHeroProps {
 }
 
 export function VolDecouverteHero({
-  title = 'Vol Découverte',
+  title = 'Vol Découverte Parapente Réunion | Baptême Saint-Leu',
   subtitle = 'Baptême de l\'air en parapente biplace à Saint-Leu, La Réunion',
   customImages,
 }: VolDecouverteHeroProps) {

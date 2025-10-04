@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { CONTACT } from '@/lib/constants'
 import { GiftCardCheckoutCard } from '@/components/gift-card-checkout-card'
 import { ArcGalleryHero } from '@/components/arc-gallery-hero-component'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 // CSS bounce animation
 const bounceStyle = `
@@ -54,6 +55,16 @@ export default function CartesPage() {
     <main className="min-h-screen bg-white">
       {/* Inject bounce CSS */}
       <style>{bounceStyle}</style>
+
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Tarifs', href: '/#tarifs' },
+            { label: 'Cartes Cadeaux', href: '/tarif-carte-cadeau-parapente-reunion' },
+          ]}
+        />
+      </div>
 
       {/* Hero Section avec Arc Gallery */}
       <ArcGalleryHero

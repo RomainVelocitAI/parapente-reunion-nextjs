@@ -30,16 +30,17 @@ export default function HeroVideo() {
           <div className="flex justify-center">
             <Image
               src="/images/logos/Logo_Parapente_Reunion.png"
-              alt="Parapente Réunion"
+              alt="Parapente Réunion - École de parapente Saint-Leu"
               width={150}
               height={50}
               className="max-w-[90vw]"
               priority
+              fetchPriority="high"
             />
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#021157]">
-            Des sensations inoubliables
+            Baptême Parapente Réunion | Vol Tandem Saint-Leu
           </h1>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto tracking-wide font-medium">

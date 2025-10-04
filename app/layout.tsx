@@ -4,6 +4,8 @@ import "./globals.css"
 import AnnouncementBar from "@/components/layout/AnnouncementBar"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
+import { CookieBanner } from "@/components/CookieBanner"
+import { organizationSchema } from "@/lib/schemas/organization"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,6 +73,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${pacifico.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="antialiased font-sans overflow-x-hidden">
         <AnnouncementBar />
         <Header />
@@ -78,6 +86,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   )
