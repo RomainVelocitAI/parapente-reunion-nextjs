@@ -16,6 +16,14 @@ export const metadata = {
     description: 'École de parapente n°1 à La Réunion depuis 1990. Vol tandem avec moniteurs diplômés, vue océan.',
     type: 'website',
     locale: 'fr_FR',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Parapente Réunion - Logo',
+      },
+    ],
   }
 }
 
