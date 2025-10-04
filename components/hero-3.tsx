@@ -19,7 +19,7 @@ const ActionButton = ({ children }: { children: React.ReactNode }) => (
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className="mt-8 px-8 py-3 rounded-full bg-red-500 text-white font-semibold shadow-lg transition-colors hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
+    className="mt-4 mb-8 px-8 py-3 rounded-full bg-[#FFD700] text-[#021157] font-semibold shadow-lg transition-colors hover:bg-[#FFC700] focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-opacity-75"
   >
     {children}
   </motion.button>
@@ -46,7 +46,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   return (
     <section
       className={cn(
-        "relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-4",
+        "relative w-full h-[70vh] overflow-hidden bg-white flex flex-col items-center text-center px-4 pt-24",
         className
       )}
     >
@@ -56,7 +56,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           initial="hidden"
           animate="show"
           variants={FADE_IN_ANIMATION_VARIANTS}
-          className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-muted-foreground backdrop-blur-sm"
+          className="mb-4 inline-block rounded-full border border-[#021157]/20 bg-[#021157]/5 px-4 py-1.5 text-sm font-medium text-[#021157] backdrop-blur-sm"
         >
           {tagline}
         </motion.div>
@@ -73,7 +73,8 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
               },
             },
           }}
-          className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground"
+          className="text-5xl md:text-7xl font-bold tracking-tighter text-[#021157]"
+          style={{ fontFamily: 'Pacifico, cursive' }}
         >
           {typeof title === 'string' ? (
             title.split(" ").map((word, i) => (
@@ -96,7 +97,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           animate="show"
           variants={FADE_IN_ANIMATION_VARIANTS}
           transition={{ delay: 0.5 }}
-          className="mt-6 max-w-xl text-lg text-muted-foreground"
+          className="mt-6 max-w-xl text-lg text-[#021157]/80"
         >
           {description}
         </motion.p>
@@ -113,7 +114,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
       </div>
 
       {/* Animated Image Marquee */}
-      <div className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+      <div className="absolute bottom-0 left-0 w-full h-1/2 md:h-3/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
         <motion.div
           className="flex gap-4"
           animate={{

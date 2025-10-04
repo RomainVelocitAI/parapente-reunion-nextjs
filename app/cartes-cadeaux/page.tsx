@@ -64,7 +64,7 @@ export default function CartesPage() {
       />
 
       {/* Gift Card Checkout Section */}
-      <section className="py-20 px-4 -mt-20">
+      <section className="py-20 px-4 -mt-8">
         <div className="max-w-4xl mx-auto">
 
           <div className="relative">

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ZoomParallax } from '@/components/zoom-parallax';
-import { MobileHero } from './MobileHero';
+import { AnimatedMarqueeHero } from '@/components/hero-3';
 
 interface FormationParapenteHeroProps {
   title?: string;
@@ -43,20 +43,17 @@ export function FormationParapenteHero({
 
   return (
     <>
-      {/* Hero Mobile (< 1024px) */}
       {isMobile ? (
-        <MobileHero
+        <AnimatedMarqueeHero
+          tagline="Formation Parapente"
           title={title}
-          subtitle={subtitle}
-          imageSrc={images[0].src}
-          imageAlt={images[0].alt}
+          description={subtitle}
+          ctaText="Réserver maintenant"
+          images={images.map(img => img.src)}
         />
       ) : (
         <>
-          {/* Zoom Parallax Effect Desktop */}
           <ZoomParallax images={images} />
-
-          {/* Titre H1 après le scroll Desktop */}
           <section className="relative py-12 bg-gradient-to-b from-transparent to-white">
             <div className="w-full lg:max-w-7xl lg:mx-auto text-center px-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#021157] animate-fade-in" style={{ fontFamily: 'Pacifico, cursive' }}>

@@ -33,10 +33,10 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   endAngle = 160,
   radiusLg = 480,
   radiusMd = 360,
-  radiusSm = 260,
+  radiusSm = 180,
   cardSizeLg = 120,
   cardSizeMd = 100,
-  cardSizeSm = 80,
+  cardSizeSm = 70,
   className = '',
   title = 'Rediscover Your Memories with AI',
   description = 'Our intelligent platform finds, organizes, and brings your most cherished moments back to life.',
@@ -46,9 +46,10 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   secondaryButtonAction,
   hideButtons = false,
 }) => {
+  // Initialize with correct size based on window width (SSR-safe)
   const [dimensions, setDimensions] = useState({
-    radius: radiusLg,
-    cardSize: cardSizeLg,
+    radius: radiusSm,
+    cardSize: cardSizeSm,
   });
 
   // Effect to handle responsive resizing of the arc and cards
@@ -64,7 +65,7 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
       }
     };
 
-    handleResize(); // Set initial size
+    handleResize(); // Set initial size immediately
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [radiusLg, radiusMd, radiusSm, cardSizeLg, cardSizeMd, cardSizeSm]);
@@ -74,14 +75,14 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   const step = (endAngle - startAngle) / (count - 1);
 
   return (
-    <section className={`relative overflow-hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col ${className}`}>
+    <section className={`relative overflow-hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-white lg:min-h-screen flex flex-col pt-24 lg:pt-32 ${className}`}>
       {/* Background ring container that controls geometry */}
       <div
         className="relative mx-auto"
         style={{
           width: '100%',
-          // Give it a bit more height to prevent clipping
-          height: dimensions.radius * 1.2,
+          // Tighter spacing on mobile, normal on desktop
+          height: dimensions.radius * (dimensions.radius < 300 ? 0.9 : 1.2),
         }}
       >
         {/* Center pivot for transforms - positioned at bottom center */}
@@ -132,12 +133,12 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
       </div>
 
       {/* Content positioned below the arc */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-56 md:-mt-72 lg:-mt-96">
+      <div className="relative z-10 flex lg:flex-1 items-center justify-center px-6 -mt-16 md:-mt-72 lg:-mt-96 pb-8 lg:pb-0">
         <div className="text-center max-w-2xl px-6 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#021157]">
             {title}
           </h1>
-          <p className="mt-4 text-lg text-[#021157]/80">
+          <p className="mt-2 text-lg text-[#021157]/80">
             {description}
           </p>
           {!hideButtons && (
