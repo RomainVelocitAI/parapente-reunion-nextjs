@@ -40,7 +40,7 @@ export default function HeroVideo() {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#021157]">
-            Baptême Parapente Réunion | Vol Tandem Saint-Leu
+            Parapente Réunion | Vol Tandem Saint-Leu
           </h1>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto tracking-wide font-medium">
