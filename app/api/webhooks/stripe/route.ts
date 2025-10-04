@@ -43,16 +43,45 @@ export async function POST(req: NextRequest) {
           metadata: session.metadata,
         });
 
-        // TODO: Implémenter la logique métier
-        // 1. Enregistrer la commande dans la base de données
-        // 2. Générer les codes de cartes cadeaux
-        // 3. Envoyer l'email de confirmation avec les cartes cadeaux
-        // 4. Si sendEmail === 'true', envoyer aussi au destinataire
+        // Envoyer les données au webhook n8n
+        try {
+          const webhookData = {
+            sessionId: session.id,
+            paymentStatus: session.payment_status,
+            amountTotal: session.amount_total ? session.amount_total / 100 : 0, // Convertir centimes en euros
+            currency: session.currency,
+            customerEmail: session.customer_email,
+            buyerFirstName: session.metadata?.buyerFirstName || '',
+            buyerLastName: session.metadata?.buyerLastName || '',
+            buyerEmail: session.metadata?.buyerEmail || '',
+            buyerPhone: session.metadata?.buyerPhone || '',
+            recipientType: session.metadata?.recipientType || '',
+            sendEmail: session.metadata?.sendEmail === 'true',
+            recipientEmail: session.metadata?.recipientEmail || '',
+            recipientName: session.metadata?.recipientName || '',
+            message: session.metadata?.message || '',
+            createdAt: new Date().toISOString(),
+          };
 
-        // Exemple de structure pour les cartes cadeaux:
-        // - Générer un code unique par carte (ex: PARA-XXXX-XXXX)
-        // - Créer un QR code pour chaque carte
-        // - Envoyer un email avec les PDF des cartes cadeaux
+          const n8nResponse = await fetch(
+            'https://n8n.srv763918.hstgr.cloud/webhook-test/a9ebbe55-8ecd-499d-b160-cf5062caeb11',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(webhookData),
+            }
+          );
+
+          if (!n8nResponse.ok) {
+            console.error('❌ Erreur lors de l\'envoi au webhook n8n:', await n8nResponse.text());
+          } else {
+            console.log('✅ Données envoyées au webhook n8n avec succès');
+          }
+        } catch (error: any) {
+          console.error('❌ Erreur lors de l\'appel au webhook n8n:', error.message);
+        }
 
         break;
       }
