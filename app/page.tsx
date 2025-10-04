@@ -18,7 +18,7 @@ export const metadata = {
     locale: 'fr_FR',
     images: [
       {
-        url: '/images/logo.png',
+        url: 'https://jolly-lily-fa5991.netlify.app/images/logo.png',
         width: 1200,
         height: 630,
         alt: 'Parapente Réunion - Logo',
