@@ -8,11 +8,11 @@ import MoniteursSection from '@/components/home/MoniteursSection'
 import FAQSection from '@/components/home/FAQSection'
 
 export const metadata = {
-  title: 'Baptême Parapente Réunion | Vol Tandem Saint-Leu - Sensations Inoubliables',
-  description: 'École de parapente n°1 à La Réunion depuis 1990. Vol tandem, baptême de l\'air, formation parapente à Saint-Leu avec 12 moniteurs diplômés. Réservation en ligne, vue océan garantie.',
+  title: 'Parapente Réunion | Vol Tandem Saint-Leu 974',
+  description: 'École de parapente n°1 à La Réunion depuis 1990. Vol tandem et baptême avec 12 moniteurs diplômés à Saint-Leu. Réservation en ligne, vue océan.',
   keywords: 'parapente réunion, baptême parapente saint-leu, vol tandem réunion, parapente 974, école parapente réunion, formation parapente, vol biplace saint-leu',
   openGraph: {
-    title: 'Baptême Parapente Réunion | Vol Tandem Saint-Leu',
+    title: 'Parapente Réunion | Vol Tandem Saint-Leu',
     description: 'École de parapente n°1 à La Réunion depuis 1990. Vol tandem avec moniteurs diplômés, vue océan.',
     type: 'website',
     locale: 'fr_FR',

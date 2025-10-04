@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   description: "Vivez l'expérience unique du parapente à Saint-Leu, La Réunion. Vol tandem au-dessus du lagon avec moniteurs diplômés d'État. 300 jours de vol par an depuis 1990.",
   keywords: ['parapente réunion', 'baptême parapente', 'vol tandem saint-leu', 'parapente 974', 'vol parapente la réunion'],
   authors: [{ name: 'Parapente Réunion' }],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   viewport: {
     width: 'device-width',
     initialScale: 1,
@@ -38,10 +42,10 @@ export const metadata: Metadata = {
     siteName: 'Parapente Réunion',
     images: [
       {
-        url: '/images/hero/saint-leu-la-reunion.webp',
+        url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Vol en parapente au-dessus de Saint-Leu, La Réunion',
+        alt: 'Parapente Réunion - Logo',
       },
     ],
     locale: 'fr_FR',
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Parapente Réunion - Vol Tandem Saint-Leu',
     description: 'Vivez l\'expérience unique du parapente à La Réunion. Vol tandem avec moniteurs diplômés.',
-    images: ['/images/hero/saint-leu-la-reunion.webp'],
+    images: ['/images/logo.png'],
   },
   robots: {
     index: true,

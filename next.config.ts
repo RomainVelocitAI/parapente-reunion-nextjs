@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  headers: async () => {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Powered-By',
+            value: '',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
