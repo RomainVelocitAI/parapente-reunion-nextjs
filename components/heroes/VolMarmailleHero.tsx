@@ -11,8 +11,8 @@ interface VolMarmailleHeroProps {
 }
 
 export function VolMarmailleHero({
-  title = 'Vol Marmaille',
-  subtitle = 'L\'aventure parapente pour les enfants de moins de 12 ans',
+  title = 'Parapente Réunion | Baptême Pour Enfants à Saint-Leu',
+  subtitle = 'L\'aventure parapente pour les enfants dès 4 ans avec moniteurs spécialisés',
   customImages,
 }: VolMarmailleHeroProps) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
@@ -56,7 +56,7 @@ export function VolMarmailleHero({
           <ZoomParallax images={images} />
           <section className="relative py-12 bg-gradient-to-b from-transparent to-white">
             <div className="w-full lg:max-w-7xl lg:mx-auto text-center px-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#021157] animate-fade-in" style={{ fontFamily: 'Pacifico, cursive' }}>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#021157] animate-fade-in leading-snug" style={{ fontFamily: 'Pacifico, cursive' }}>
                 {title}
               </h1>
             </div>
