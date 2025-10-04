@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
           product_data: {
             name: item.title,
             description: `Carte cadeau parapente - ${item.title}`,
-            images: ['https://parapente-reunion.com/images/galerie/boitenobg.png'],
+            images: ['https://parapente-reunion.fr/images/logo.png'],
           },
           unit_amount: item.price * 100, // Stripe utilise les centimes
         },
@@ -41,8 +41,8 @@ export async function POST(req: NextRequest) {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: `${baseUrl}/cartes-cadeaux/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/cartes-cadeaux`,
+      success_url: `${baseUrl}/tarif-carte-cadeau-parapente-reunion/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/tarif-carte-cadeau-parapente-reunion`,
       customer_email: formData.buyerEmail,
       metadata: {
         // Stocker les informations du formulaire dans les métadonnées
