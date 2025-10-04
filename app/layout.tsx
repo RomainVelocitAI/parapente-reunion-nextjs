@@ -21,7 +21,7 @@ const pacifico = Pacifico({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://parapente-reunion.fr'),
+  metadataBase: new URL('https://jolly-lily-fa5991.netlify.app'),
   title: "Parapente Réunion | Vol Tandem Saint-Leu | Baptême de l'Air 974",
   description: "Vivez l'expérience unique du parapente à Saint-Leu, La Réunion. Vol tandem au-dessus du lagon avec moniteurs diplômés d'État. 300 jours de vol par an depuis 1990.",
   keywords: ['parapente réunion', 'baptême parapente', 'vol tandem saint-leu', 'parapente 974', 'vol parapente la réunion'],
