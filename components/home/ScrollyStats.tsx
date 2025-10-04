@@ -63,7 +63,7 @@ export default function ScrollyStats() {
       {/* Background gradient blur */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-transparent to-transparent pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-4">
+      <div className="relative w-full lg:max-w-7xl lg:mx-auto px-4">
         {/* Stats grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {stats.map((stat, index) => {

@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="w-full lg:max-w-7xl lg:mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         {/* Grid 3 colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Colonne 1: À propos */}
@@ -136,7 +136,14 @@ export default function Footer() {
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 text-blue-400" />
-                <span className="text-sm">{CONTACT.address}</span>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=1+Rue+Georges+Pompidou,+97436+Saint-Leu,+La+Réunion"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-white transition-colors"
+                >
+                  {CONTACT.address}
+                </a>
               </li>
               <li className="flex items-start space-x-3">
                 <Calendar className="h-5 w-5 mt-0.5 flex-shrink-0 text-blue-400" />
@@ -149,9 +156,23 @@ export default function Footer() {
         {/* Ligne de séparation */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
-              © {currentYear} Parapente Réunion. Tous droits réservés.
-            </p>
+            <div className="flex flex-col items-center md:items-start space-y-2">
+              <p className="text-sm text-gray-400">
+                © {currentYear} Parapente Réunion. Tous droits réservés.
+              </p>
+              <p className="text-xs text-gray-500">
+                Propulsé par{' '}
+                <a
+                  href="https://digiqo.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Digiqo
+                </a>
+                {' '}- Ladi la fé zot pub
+              </p>
+            </div>
             <div className="flex space-x-6 text-sm">
               <Link href="/mentions-legales" className="text-gray-400 hover:text-white transition-colors">
                 Mentions légales

@@ -62,14 +62,30 @@ function FrameComponent({
   isHovered,
 }: FrameComponentProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (isHovered) {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) {
+      // Sur mobile : autoplay toujours
       videoRef.current?.play()
     } else {
-      videoRef.current?.pause()
+      // Sur desktop : play uniquement au hover
+      if (isHovered) {
+        videoRef.current?.play()
+      } else {
+        videoRef.current?.pause()
+      }
     }
-  }, [isHovered])
+  }, [isHovered, isMobile])
 
   return (
     <div
@@ -113,10 +129,10 @@ function FrameComponent({
         </div>
 
         {/* Texte toujours visible pour SEO */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 md:p-8" style={{ zIndex: 3 }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4 md:p-6 lg:p-8" style={{ zIndex: 3 }}>
           <div className="text-white w-full">
             {title && (
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">{title}</h3>
+              <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-2">{title}</h3>
             )}
             {description && (
               <p className="text-sm md:text-base lg:text-lg mb-3 opacity-90 line-clamp-2">{description}</p>
@@ -229,8 +245,8 @@ interface DynamicFrameLayoutProps {
   gapSize?: number
 }
 
-export function DynamicFrameLayout({ 
-  frames: initialFrames, 
+export function DynamicFrameLayout({
+  frames: initialFrames,
   className,
   showFrames = false,
   hoverSize = 6,
@@ -238,8 +254,20 @@ export function DynamicFrameLayout({
 }: DynamicFrameLayoutProps) {
   const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const getRowSizes = () => {
+    if (isMobile) return "1fr"
     if (hovered === null) return "6fr 6fr"
     const { row } = hovered
     const nonHoveredSize = (12 - hoverSize)
@@ -247,6 +275,7 @@ export function DynamicFrameLayout({
   }
 
   const getColSizes = () => {
+    if (isMobile) return "1fr"
     if (hovered === null) return "6fr 6fr"
     const { col } = hovered
     const nonHoveredSize = (12 - hoverSize)
@@ -264,8 +293,8 @@ export function DynamicFrameLayout({
       className={`relative w-full h-full ${className}`}
       style={{
         display: "grid",
-        gridTemplateRows: getRowSizes(),
-        gridTemplateColumns: getColSizes(),
+        gridTemplateRows: isMobile ? `repeat(${frames.length}, 1fr)` : getRowSizes(),
+        gridTemplateColumns: isMobile ? "1fr" : getColSizes(),
         gap: `${gapSize}px`,
         transition: "grid-template-rows 0.4s ease, grid-template-columns 0.4s ease",
       }}

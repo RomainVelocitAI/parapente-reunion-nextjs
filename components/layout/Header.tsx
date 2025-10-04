@@ -29,8 +29,8 @@ export default function Header() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
+    <header className="fixed top-0 left-0 right-0 z-[60] bg-white/95 backdrop-blur-sm border-b border-gray-200 mt-12">
+      <nav className="w-full px-4 sm:px-6 lg:px-8 lg:mx-auto lg:max-w-7xl" aria-label="Navigation principale">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
@@ -120,7 +120,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 mt-2 pt-4 pb-6">
+          <div className="lg:hidden border-t border-gray-200 mt-2 pt-4 pb-6 max-h-[calc(100vh-80px)] overflow-y-auto">
             <div className="space-y-2">
               {navigation.map((item) => (
                 <div key={item.name}>
