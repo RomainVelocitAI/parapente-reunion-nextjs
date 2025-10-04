@@ -1,6 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { ZoomParallax } from '@/components/zoom-parallax';
+import { MobileHero } from './MobileHero';
 
 interface FormationParapenteHeroProps {
   title?: string;
@@ -13,6 +15,17 @@ export function FormationParapenteHero({
   subtitle = 'Apprenez à voler en toute autonomie avec nos stages de formation',
   customImages,
 }: FormationParapenteHeroProps) {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const defaultImages = [
     { src: '/images/galerie/formation-hero-1.jpg', alt: 'Formation parapente La Réunion' },
     { src: '/images/galerie/formation-hero-2.jpg', alt: 'Stage pilotage parapente' },
@@ -25,19 +38,34 @@ export function FormationParapenteHero({
 
   const images = customImages || defaultImages;
 
+  // Ne rien rendre avant l'hydration pour éviter le FOUC
+  if (isMobile === null) return null;
+
   return (
     <>
-      {/* Zoom Parallax Effect */}
-      <ZoomParallax images={images} />
+      {/* Hero Mobile (< 1024px) */}
+      {isMobile ? (
+        <MobileHero
+          title={title}
+          subtitle={subtitle}
+          imageSrc={images[0].src}
+          imageAlt={images[0].alt}
+        />
+      ) : (
+        <>
+          {/* Zoom Parallax Effect Desktop */}
+          <ZoomParallax images={images} />
 
-      {/* Titre H1 après le scroll */}
-      <section className="relative py-12 bg-gradient-to-b from-transparent to-white">
-        <div className="max-w-7xl mx-auto text-center px-4">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#021157] animate-fade-in" style={{ fontFamily: 'Pacifico, cursive' }}>
-            {title}
-          </h1>
-        </div>
-      </section>
+          {/* Titre H1 après le scroll Desktop */}
+          <section className="relative py-12 bg-gradient-to-b from-transparent to-white">
+            <div className="w-full lg:max-w-7xl lg:mx-auto text-center px-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#021157] animate-fade-in" style={{ fontFamily: 'Pacifico, cursive' }}>
+                {title}
+              </h1>
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 }
