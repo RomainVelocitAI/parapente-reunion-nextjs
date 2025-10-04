@@ -6,6 +6,8 @@ import { FormationParapenteHero } from '@/components/heroes/FormationParapenteHe
 import { FormationGallery } from '@/components/galleries/FormationGallery'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
+import { TarifFAQ } from '@/components/TarifFAQ'
+import { faqFormation } from '@/lib/faq-data'
 
 export default function FormationParapentePage() {
   const etapes = [
@@ -160,6 +162,14 @@ export default function FormationParapentePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <TarifFAQ
+        faqs={faqFormation}
+        title="Questions fréquentes sur la formation"
+        subtitle="Tout savoir pour devenir pilote de parapente"
+        imageUrl="/images/galerie/formation-slider-1.jpg"
+      />
     </main>
   )
 }

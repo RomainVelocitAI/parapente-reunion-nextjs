@@ -6,6 +6,8 @@ import { VolSunsetHero } from '@/components/heroes/VolSunsetHero'
 import { VolSunsetGallery } from '@/components/galleries/VolSunsetGallery'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
+import { TarifFAQ } from '@/components/TarifFAQ'
+import { faqVolSunset } from '@/lib/faq-data'
 
 export default function VolSunsetPage() {
   return (
@@ -142,6 +144,14 @@ export default function VolSunsetPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <TarifFAQ
+        faqs={faqVolSunset}
+        title="Questions fréquentes sur le vol sunset"
+        subtitle="Tout savoir sur le vol au coucher de soleil"
+        imageUrl="/images/galerie/vol-sunset-slider-1.jpg"
+      />
     </main>
   )
 }

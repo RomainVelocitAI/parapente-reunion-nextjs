@@ -45,7 +45,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-2xl font-bold text-[#021157] mb-4">Développement et conception du site</h2>
             <div className="text-slate-700 space-y-2">
               <p>
-                <strong>Créateur du site :</strong> Digiqo.fr (Romain CANO - romain@digiqo.fr)
+                <strong>Créateur du site :</strong>{" "}<a href="https://digiqo.fr" target="_blank" className="text-blue-600 hover:text-blue-800 underline">Digiqo.fr</a>{" "}(Romain CANO - romain@digiqo.fr)
               </p>
             </div>
           </section>

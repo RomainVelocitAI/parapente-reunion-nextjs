@@ -165,7 +165,6 @@ export default function Footer() {
                 <a
                   href="https://digiqo.fr"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Digiqo
@@ -179,9 +178,6 @@ export default function Footer() {
               </Link>
               <Link href="/cgv" className="text-gray-400 hover:text-white transition-colors">
                 CGV
-              </Link>
-              <Link href="/confidentialite" className="text-gray-400 hover:text-white transition-colors">
-                Confidentialité
               </Link>
             </div>
           </div>

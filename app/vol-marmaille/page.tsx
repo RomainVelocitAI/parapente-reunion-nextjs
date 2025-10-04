@@ -6,6 +6,8 @@ import { VolMarmailleHero } from '@/components/heroes/VolMarmailleHero'
 import { VolMarmailleGallery } from '@/components/galleries/VolMarmailleGallery'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
+import { TarifFAQ } from '@/components/TarifFAQ'
+import { faqVolMarmaille } from '@/lib/faq-data'
 
 export default function VolMarmaillePage() {
   return (
@@ -142,6 +144,14 @@ export default function VolMarmaillePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <TarifFAQ
+        faqs={faqVolMarmaille}
+        title="Questions fréquentes sur le vol marmaille"
+        subtitle="Tout savoir sur le parapente pour enfants"
+        imageUrl="/images/galerie/vol-marmaille-carousel-1.jpg"
+      />
     </main>
   )
 }

@@ -6,6 +6,8 @@ import { VolDecouverteHero } from '@/components/heroes/VolDecouverteHero'
 import { VolDecouverteGallery } from '@/components/galleries/VolDecouverteGallery'
 import { ImageAutoSlider } from '@/components/image-auto-slider'
 import { ShirtParallaxCard } from '@/components/shirt-parallax-card'
+import { TarifFAQ } from '@/components/TarifFAQ'
+import { faqVolDecouverte } from '@/lib/faq-data'
 
 export default function VolDecouvertePage() {
   const durations = [
@@ -153,6 +155,14 @@ export default function VolDecouvertePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <TarifFAQ
+        faqs={faqVolDecouverte}
+        title="Questions fréquentes sur le vol découverte"
+        subtitle="Tout savoir sur le baptême de parapente à Saint-Leu"
+        imageUrl="/images/galerie/vol-decouverte-slider-1.jpg"
+      />
     </main>
   )
 }
